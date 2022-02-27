@@ -1,5 +1,7 @@
 # Database Model Schema
 
+## Pet's Description Table
+
 `name: {`  
 &nbsp;&nbsp;`type: DataTypes.STRING,`  
 &nbsp;&nbsp;`required: true,`  
@@ -30,3 +32,32 @@
 `reward: {`  
 &nbsp;&nbsp;`type: DataTypes.NUMBER,`  
 `}`    
+
+## User's Profile Table
+
+`first name: {`  
+&nbsp;&nbsp;`type: DataTypes.STRING,`  
+&nbsp;&nbsp;`required: true,`  
+`},`  
+`last name: {`  
+&nbsp;&nbsp;`type: DataTypes.STRING,`  
+&nbsp;&nbsp;`required: true,`  
+`},`  
+`password: {`  
+&nbsp;&nbsp;`type: DataTypes.STRING,`  
+`},`    
+`role: {`  
+&nbsp;&nbsp;`type: DataTypes.String,`  
+`},`  
+
+## Comment's Table
+
+`commentText: {`  
+&nbsp;&nbsp;`type: DataTypes.STRING,`  
+`},`    
+`originalCommentID: {`  
+&nbsp;&nbsp;`type: DataTypes.Number,`  
+`},`  
+`reply: {`  
+&nbsp;&nbsp;`type: DataTypes.BOOLEAN,`  
+`},` 
