@@ -6,6 +6,9 @@
 &nbsp;&nbsp;`type: DataTypes.STRING,`  
 &nbsp;&nbsp;`required: true,`  
 `},`  
+`UserId: {`  
+&nbsp;&nbsp;`type: DataTypes.NUMBER,`  
+`},`    
 `description: {`  
 &nbsp;&nbsp;`type: DataTypes.STRING,`  
 &nbsp;&nbsp;`required: true,`  
@@ -49,11 +52,20 @@
 `role: {`  
 &nbsp;&nbsp;`type: DataTypes.String,`  
 `},`  
+`profilePic: {`  
+&nbsp;&nbsp;`type: DataTypes.BlOB,`  
+`},`    
 
 ## Comment's Table
 
 `commentText: {`  
 &nbsp;&nbsp;`type: DataTypes.STRING,`  
+`},`  
+`PetId: {`  
+&nbsp;&nbsp;`type: DataTypes.NUMBER,`  
+`},`    
+`UserId: {`  
+&nbsp;&nbsp;`type: DataTypes.NUMBER,`  
 `},`    
 `originalCommentID: {`  
 &nbsp;&nbsp;`type: DataTypes.Number,`  
