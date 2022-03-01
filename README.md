@@ -1,7 +1,5 @@
 # lost-pet-finder-frontend
 
-
-
 ## NOTE: make note that we want to add functionality to give pets homes as well.
 
 <div id="top"></div>
@@ -61,10 +59,8 @@
 
 >An Application secured by Auth that allows the users to search through NFT's using OpenSea API, and save their favorite NFT or artist.
 
-<!-- TODO -->
 ## UML
 
-<img src="img/WF-Finalproject-backend.png" width="80%" height="auto">
 <img src="img/WF-Finalproject-frontend.png" width="80%" height="auto">
 <img src="img/WF-Finalproject-socket-io.png" width="80%" height="auto">
 <img src="img/WF-Finalproject-WireFrame.png" width="80%" height="auto">
@@ -97,28 +93,7 @@
 npm install npm@latest -g
 
 # Clone the repository
-git clone git@github.com:Floof-finders.git
-
-# Dev Database setup
-psql
-CREATE DATABASE "CC
-C
-C
-C
-C
-C
-C
-C
-CC
-C
-
-CC
-C
-C
-
-C
-Create the DB and put it here";
-\q
+git clone git@github.com:Floof-finders/lost-pet-finder-frontend.git
 
 # Install dependencies
 npm install
@@ -258,7 +233,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 Heather Bisgaard - [@vbchomp](https://github.com/vbchomp) - [LinkedIn Profile](https://www.linkedin.com/in/heather-bisgaard/) - vbchomp@gmail.com  
-Charlie Fadness - [@fadnesscharlie](https://github.com/fadnesscharlie) - [LinkedIn Profile](https://www.linkedin.com/in/cfadness/) - fadness.charlie@hotmail.com  
+Charlie Fadness - [@fadnesscharlie](https://github.com/fadnesscharlie) - [LinkedIn Profile](https://www.linkedin.com/in/cfadness/) - fadness.charlie@outlook.com  
 Mark Thanadabouth - [@markjackson28](https://github.com/markjackson28) - [LinkedIn Profile](linkedin.com/in/markjackson28) - mark28ten@gmail.com 
 
 Project Link: [https://github.com/Floof-Finders](https://github.com/Floof-Finders)
