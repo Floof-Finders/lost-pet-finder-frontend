@@ -1,7 +1,7 @@
 export default function Profile(props) {
 	return (
 		<div>
-			<h1>AboutUs Component</h1>
+			<h1>Profile Component</h1>
 		</div>
 	);
 }
