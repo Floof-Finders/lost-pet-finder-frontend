@@ -17,7 +17,7 @@ export default function NavRoutes(props) {
           <Link to="profile">Profile</Link>
         </li>
         <li>
-          <Link to='a'>About Us</Link>
+          <Link to='about'>About Us</Link>
         </li>
       </ul>
     </nav>

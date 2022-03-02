@@ -23,7 +23,7 @@ function App() {
 						}
 					/>
 					<Route path='landing' element={<Landing />} />
-					<Route path='a' element={<AboutUs />} />
+					<Route path='about' element={<AboutUs />} />
 					<Route path='profile' element={<Profile />} />
 				</Routes>
 			</header>
