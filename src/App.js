@@ -1,23 +1,30 @@
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
+import Main from './components/Main';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>Welcome to Lost Pet Finder! 2.0 You are a pet wizard now</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<header className='App-header'>
+				<BrowserRouter>
+					<Routes>
+						<Route
+							path='/'
+							element={
+								<>
+									<Header />
+									<Main />
+									<Footer />
+								</>
+							}
+						/>
+					</Routes>
+				</BrowserRouter>
+			</header>
+		</div>
+	);
 }
 
 export default App;
