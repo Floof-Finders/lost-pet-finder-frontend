@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Main from './components/Main';
@@ -14,17 +14,18 @@ function App() {
 
 	const openSideNav = () => {
 		setWidth('20%');
-		setOverAllWidth('80%')
-	}
+		setOverAllWidth('80%');
+	};
 
 	const closeSideNav = () => {
 		setWidth('0%');
-		setOverAllWidth('100%')
-	}
+		setOverAllWidth('100%');
+	};
 
 	return (
-		<div className='App' 
-		// style={{width: overAllWidth}}
+		<div
+			className='App'
+			// style={{width: overAllWidth}}
 		>
 			<header className='App-header'>
 				<Header
@@ -37,16 +38,23 @@ function App() {
 						path='/'
 						element={
 							<>
-								<Main
-								overAllWidth={overAllWidth}
-								/>
+								<Main overAllWidth={overAllWidth} />
 								<Footer />
 							</>
 						}
 					/>
-					<Route path='landing' element={<Landing />} />
-					<Route path='about' element={<AboutUs />} />
-					<Route path='profile' element={<Profile />} />
+					<Route
+						path='landing'
+						element={<Landing overAllWidth={overAllWidth} />}
+					/>
+					<Route
+						path='about'
+						element={<AboutUs overAllWidth={overAllWidth} />}
+					/>
+					<Route
+						path='profile'
+						element={<Profile overAllWidth={overAllWidth} />}
+					/>
 				</Routes>
 			</header>
 		</div>
