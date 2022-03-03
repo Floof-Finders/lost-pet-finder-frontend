@@ -11,7 +11,7 @@ export default function Profile(props) {
 	let lostPetArr = [1, 2, 3, 4];
 
 	return (
-		<>
+		<div style={{width: props.overAllWidth}}>
 			<Row>
 				<Col md="auto">
 					<Container>
@@ -66,6 +66,6 @@ export default function Profile(props) {
 			</Row>
 			<UserModal show={showUser} onHide={() => setShowUser(false)} />
 			<PetModal show={showPet} onHide={() => setShowPet(false)} />
-		</>
+		</div>
 	);
 }

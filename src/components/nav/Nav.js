@@ -1,11 +1,15 @@
-
 import { Link } from 'react-router-dom';
-// import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
+import './Nav.css'
+import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 
-export default function NavRoutes(props) {
+export default function Nav(props) {
   return (
-    <nav>
-      {/* <aside onClick={}>{<CancelPresentationIcon/>}</aside> */}
+    <aside className='NavRoutes' style={{width: props.width
+    , height:"100vh"
+    }}>
+
+    <nav >
+      <aside className='exitNav' onClick={props.closeSideNav}>{<CancelPresentationIcon/>}</aside>
       <ul>
         <li>
           <Link to='/'>Home</Link>
@@ -21,5 +25,6 @@ export default function NavRoutes(props) {
         </li>
       </ul>
     </nav>
+    </aside>
   )
 }
