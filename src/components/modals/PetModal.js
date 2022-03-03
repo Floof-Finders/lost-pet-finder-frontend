@@ -24,7 +24,6 @@ export default function PetModal(props) {
 			petTracker,
 			petReward,
 		})
-		props.setShowPet(false)
 		props.handlePetData({
 			petName,
 			petDescription,
@@ -94,9 +93,6 @@ export default function PetModal(props) {
 							<Form.Label>Reward</Form.Label>
 							<Form.Control type='text' />
 						</Form.Group>
-					</Form>
-				</Modal.Body>
-				<Modal.Footer>
 					<Button 
 						variant='primary' 
 						type='submit' 
@@ -104,6 +100,9 @@ export default function PetModal(props) {
 					>
 						Save Changes
 					</Button>
+					</Form>
+				</Modal.Body>
+				<Modal.Footer>
 				</Modal.Footer>
 			</Modal>
 		</>
