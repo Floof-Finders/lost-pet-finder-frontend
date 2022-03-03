@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Card, Button, Row, Col, Modal, Form } from 'react-bootstrap';
+import { Container, Card, Button, Row, Col } from 'react-bootstrap';
 import UserModal from '../modals/UserModal';
 import PetModal from '../modals/PetModal';
 import "./Profile.css";
