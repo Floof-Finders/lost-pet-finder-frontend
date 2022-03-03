@@ -38,12 +38,12 @@ export default function PetModal(props) {
 	}
 	return (
 		<>
-			<Modal show={props.showPet} onHide={props.showPet}>
+			<Modal show={props.showPet} onHide={props.onHide}>
 				<Modal.Header closeButton>
 					<Modal.Title>Pet Information</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<Form onSubmit={() => handleSubmit()}>
+					<Form onSubmit={handleSubmit}>
 
 						<Form.Group controlId='name'>
 							<Form.Label>Pet Name</Form.Label>
