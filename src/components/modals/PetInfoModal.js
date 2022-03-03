@@ -1,5 +1,6 @@
 import { Button, Row, Col, Modal, Container } from 'react-bootstrap';
 
+// Pet Description
 export default function petInfoModal(props) {
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
