@@ -5,17 +5,15 @@ import PetModal from '../modals/PetModal';
 import "./Profile.css";
 import axios from 'axios'
 
-
 export default function Profile(props) {
 	const [showUser, setShowUser] = useState(false);
 	const [showPet, setShowPet] = useState(false);
 	let lostPetArr = [1, 2, 3, 4];
 
 	async function handlePetData(petInfo){
+		let response = await axios.post(`${process.env.REACT_APP_BACKEND_SERVER}/pet-creation`, petInfo)
 
-		console.log('petInfo:', petInfo);
-		let response = await axios.post(`${process.env.REACT_APP_BACKEND}/pet-creation`, petInfo)
-		console.log('reponse:', response);
+		console.log('reponse:', response.data);
 	}
 
 	return (

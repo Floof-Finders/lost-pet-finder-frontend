@@ -3,7 +3,6 @@ import { Modal, Button, Form } from 'react-bootstrap';
 // Pet create/update
 export default function PetModal(props) {
 	function handleSubmit(e) {
-		console.log('HandleSubmit Running')
 		e.preventDefault();
 		let petName = e.target.name.value;
 		let petDescription = e.target.description.value;
@@ -14,16 +13,6 @@ export default function PetModal(props) {
 		let petTracker = e.target.tracker.value;
 		let petReward = e.target.reward.value;
 
-		console.log('petStuff in Modal Page', {
-			petName,
-			petDescription,
-			petAge,
-			petBreed,
-			petLost,
-			petMedical,
-			petTracker,
-			petReward,
-		})
 		props.handlePetData({
 			petName,
 			petDescription,
@@ -96,7 +85,7 @@ export default function PetModal(props) {
 					<Button 
 						variant='primary' 
 						type='submit' 
-						// onClick={props.onHide}
+						onClick={props.onHide}
 					>
 						Save Changes
 					</Button>
