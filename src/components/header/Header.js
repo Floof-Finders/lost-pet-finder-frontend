@@ -7,7 +7,7 @@ export default function Header(props) {
 	return (
 		<header>
 			<span>
-				<img className='pawPrint' src={pawPrint} alt='paw print image'></img>
+				<img className='pawPrint' src={pawPrint} alt='paw print'></img>
 			</span>
 			<h1>Lost Pet Finder 9000</h1>
 
