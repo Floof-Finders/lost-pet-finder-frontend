@@ -4,10 +4,12 @@ import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 
 export default function Nav(props) {
   return (
-    <aside className='NavRoutes' style={{width: props.width, height:"100vh"}}>
+    <aside className='NavRoutes' style={{width: props.width
+    , height:"100vh"
+    }}>
 
     <nav >
-      <aside onClick={props.closeSideNav}>{<CancelPresentationIcon/>}</aside>
+      <aside className='exitNav' onClick={props.closeSideNav}>{<CancelPresentationIcon/>}</aside>
       <ul>
         <li>
           <Link to='/'>Home</Link>

@@ -11,15 +11,18 @@ import Landing from './components/landing/Landing';
 function App() {
 	const [width, setWidth] = useState('0%');
 	const [overAllWidth, setOverAllWidth] = useState('100%');
+	const [showButton, setShowButton] = useState(true)
 
 	const openSideNav = () => {
 		setWidth('20%');
 		setOverAllWidth('80%');
+		setShowButton(false)
 	};
 
 	const closeSideNav = () => {
 		setWidth('0%');
 		setOverAllWidth('100%');
+		setShowButton(true)
 	};
 
 	return (
@@ -27,22 +30,17 @@ function App() {
 			className='App'
 			// style={{width: overAllWidth}}
 		>
-			<header className='App-header'>
+			<div className='App-header'>
 				<Header
+				showButton={showButton}
 					width={width}
 					closeSideNav={closeSideNav}
 					openSideNav={openSideNav}
 				/>
 				<Routes>
-					<Route
-						path='/'
-						element={
-							<>
-								<Main overAllWidth={overAllWidth} />
-								<Footer />
-							</>
-						}
-					/>
+					<Route 
+						path='/' 
+						element={<Main overAllWidth={overAllWidth} />} />
 					<Route
 						path='landing'
 						element={<Landing overAllWidth={overAllWidth} />}
@@ -56,7 +54,8 @@ function App() {
 						element={<Profile overAllWidth={overAllWidth} />}
 					/>
 				</Routes>
-			</header>
+				<Footer />
+			</div>
 		</div>
 	);
 }

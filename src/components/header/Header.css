@@ -1,0 +1,26 @@
+header {
+  background-color: rgb(102, 100, 104);
+}
+
+header > h1 {
+  display: inline-block;
+  position: relative;
+  left: 40.5%;
+  top: 5px;
+}
+
+.openNav {
+  position: fixed;
+  right: 10px;
+  top: 13px;
+}
+
+.pawPrint {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  bottom: 5px;
+  left: 5px;
+}
