@@ -1,5 +1,4 @@
 import { Modal, Button, Form } from 'react-bootstrap';
-import React, { useState } from 'react';
 
 export default function UserModal(props) {
   return (
