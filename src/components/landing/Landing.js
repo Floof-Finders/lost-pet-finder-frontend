@@ -4,6 +4,7 @@ import PetInfoModal from '../modals/PetInfoModal';
 import { useState } from 'react';
 import axios from 'axios';
 
+let placeholder = 'http://placehold.jp/3d4070/ffffff/150x50.png?text=Profile%20image'
 export default function Landing(props) {
 	let lostPetArray = [1, 2, 3, 4];
 
@@ -34,7 +35,7 @@ export default function Landing(props) {
 				{lostPetArray.map((pet, id) => (
 					<Col key={id}>
 						<Card style={{ width: '18rem' }}>
-							<Card.Img variant='top' src='holder.js/100px180' />
+							<Card.Img variant='top' src={placeholder} />
 							<Card.Body>
 								<Card.Title>Card Title</Card.Title>
 								<Button 

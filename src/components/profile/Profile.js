@@ -31,7 +31,7 @@ export default function Profile(props) {
 	return (
 		<div className='background'>
 			<div className='profileBackground' style={{ width: props.overAllWidth }}>
-				<Row >
+				<Row>
 					<Col md='auto'>
 						<Container>
 							<Card style={{ width: '18rem' }}>
@@ -67,8 +67,7 @@ export default function Profile(props) {
 					</Col>
 				</Row>
 				<div className='petCardContainerOutside'>
-
-				<Row xs={1} md={2} className='g-4 petCardContainer'>
+					<Row xs={1} md={2} className='g-4 petCardContainer'>
 						{lostPetArr.map((pet, id) => (
 							<Col key={id}>
 								<Card className='petCard' style={{ width: '25rem' }}>
@@ -94,7 +93,7 @@ export default function Profile(props) {
 								</Card>
 							</Col>
 						))}
-				</Row>
+					</Row>
 				</div>
 				<UserModal
 					handleUserData={handleUserData}

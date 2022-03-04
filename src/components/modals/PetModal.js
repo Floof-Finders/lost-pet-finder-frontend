@@ -1,8 +1,10 @@
 import { Modal, Button, Form } from 'react-bootstrap';
+import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 
 // Pet create/update
 export default function PetModal(props) {
-	function handleSubmit(e) {
+	async function handleSubmit(e) {
 		e.preventDefault();
 		let petName = e.target.name.value;
 		let petDescription = e.target.description.value;
@@ -13,8 +15,11 @@ export default function PetModal(props) {
 		let petTracker = e.target.tracker.value;
 		let petReward = e.target.reward.value;
 
+		let userID = await axios.get(`${process.env.REACT_APP_BACKEND_SERVER}/user-info`)
+
 		props.handlePetData({
 			petName,
+			userID: userID.data[0].userID ? userID.data[0].userID : uuidv4,
 			petDescription,
 			petAge,
 			petBreed,
