@@ -16,6 +16,12 @@ export default function Profile(props) {
 		console.log('reponse:', response.data);
 	}
 
+	async function handleUserData(userInfo){
+		let response = await axios.post(`${process.env.REACT_APP_BACKEND_SERVER}/user-creation`, userInfo)
+
+		console.log('reponse:', response.data);
+	}
+
 	return (
 		<div style={{width: props.overAllWidth}}>
 			<Row>
@@ -72,7 +78,7 @@ export default function Profile(props) {
 					))}
 				</Container>
 			</Row>
-			<UserModal show={showUser} onHide={() => setShowUser(false)} />
+			<UserModal handleUserData={handleUserData} showUser={showUser} onHide={() => setShowUser(false)} />
 			<PetModal handlePetData={handlePetData} showPet={showPet} onHide={() => setShowPet(false)} />
 		</div>
 	);

@@ -22,6 +22,10 @@ export default function petInfoModal(props) {
             </Col>
           </Row>
 
+
+          TODO: Create a map here to map out the comments that we want to post
+          TODO: Create a comment section and have it overflow with the curser at the bottom to show most recent comments
+
           <Row>
             <Col xs={12} md={8}>
               <Button>View Comments</Button>
