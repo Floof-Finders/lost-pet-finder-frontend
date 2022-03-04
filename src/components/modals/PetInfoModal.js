@@ -22,11 +22,14 @@ export default function PetInfoModal(props) {
 	const [ userId, setUserId] = useState();
 
 	// DONE: Make this a useEffect to update comments on render
-	useEffect( async () => {
-		let comments = await axios.get(
-			`${process.env.REACT_APP_BACKEND_SERVER}/comment-info`
-		);
-		setCommentArray(comments.data)
+	useEffect(() => {
+		async function getComments() {
+			let comments = await axios.get(
+				`${process.env.REACT_APP_BACKEND_SERVER}/comment-info`
+			);
+			setCommentArray(comments.data)
+		}
+		getComments();
 	}, [comment])
 
 
