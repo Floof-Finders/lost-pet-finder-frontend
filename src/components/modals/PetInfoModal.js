@@ -10,7 +10,7 @@ import {
 import './comment.css';
 import { TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
 let placeholder = 'http://via.placeholder.com/100x100.png?text=Pet+Picture+Here'
@@ -32,7 +32,6 @@ export default function PetInfoModal(props) {
 		getComments();
 	}, [comment])
 
-
 	async function handleSubmit(e) {
 		e.preventDefault();
 
@@ -50,9 +49,9 @@ export default function PetInfoModal(props) {
 			//  ? userID.data[0].userID : uuidv4
 
 		// TODO: Change DB for petId to be UUID
-		let petID = await axios.get(
-			`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
-		);
+		// let petID = await axios.get(
+		// 	`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
+		// );
 
 		props.handleCommentData({
 			commentText: comment,
