@@ -6,7 +6,6 @@ const AuthForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const state = useContext(AuthContext);
-  console.log(username, password);
 
   const handleChangeUser = (e) => {
     setUsername(e.target.value);
