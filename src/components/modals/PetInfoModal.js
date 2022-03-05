@@ -65,24 +65,24 @@ export default function PetInfoModal(props) {
     });
   }
 
-  function handleErrors(error) {
-    let errMsg = 'Error with saving location. Please try again later.';
-    if (error) {
-      return errMsg;
-    }
-  }
+//   function handleErrors(error) {
+//     let errMsg = 'Error with saving location. Please try again later.';
+//     if (error) {
+//       return errMsg;
+//     }
+//   }
 
-  async function getLocation(e) {
-    e.preventDefault();
-    try {
-      let lostLocation = await axios.get(
-        `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API}&callback=initMap`
-      );
-      console.log('lostLocation:', lostLocation.data[0]);
-    } catch (error) {
-      this.handleErrors();
-    }
-  }
+//   async function getLocation(e) {
+//     e.preventDefault();
+//     try {
+//       let lostLocation = await axios.get(
+//         `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API}&callback=initMap`
+//       );
+//       console.log('lostLocation:', lostLocation.data[0]);
+//     } catch (error) {
+//       this.handleErrors();
+//     }
+//   }
 
   // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 
@@ -117,17 +117,17 @@ export default function PetInfoModal(props) {
             </Col>
           </Row>
         </Container>
-        <Container>
-          <img
-            async
-            defer
-						title={'Place where pet was lost'}
-            src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API}&callback=initMap`}
-						// TODO: COME back and fix this to alt description from the center of map?
-						alt={'Come back to this alt requirement later'}
-						zoom={15}
-          />
-        </Container>
+//         <Container>
+//           <img
+//             async
+//             defer
+// 						title={'Place where pet was lost'}
+//             src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API}&callback=initMap`}
+// 						// TODO: COME back and fix this to alt description from the center of map?
+// 						alt={'Come back to this alt requirement later'}
+// 						zoom={15}
+//           />
+//         </Container>
         <Container className="commentContainer">
           {commentArray &&
             commentArray.reverse().map((comment) => {
