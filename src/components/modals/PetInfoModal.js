@@ -30,7 +30,7 @@ export default function PetInfoModal(props) {
 			setCommentArray(comments.data)
 		}
 		getComments();
-	}, [comment])
+	}, [commentArray])
 
 	async function handleSubmit(e) {
 		e.preventDefault();
@@ -112,15 +112,20 @@ export default function PetInfoModal(props) {
 				{/* DONE: Create a map here to map out the comments that we want to post */}
 				{/* DONE: Create a comment section and have it overflow */}
 				{/* TODO: Load curser at the bottom to show most recent comments */}
+				
 				<Form onSubmit={handleSubmit}>
+					<Form.Group className="textField">
+
 					<TextField
 						id='fullWidth'
 						label='Enter your comment here'
 						fullWidth
 						rows={4}
 						onInput={(e) => setComment(e.target.value)}
-					/>
-					<Button type='submit'>Enter Comment</Button>
+						
+						/>
+					<Button className="textFieldButton" type='submit'>Enter Comment</Button>
+						</Form.Group>
 				</Form>
 			</Modal.Body>
 			<Modal.Footer>

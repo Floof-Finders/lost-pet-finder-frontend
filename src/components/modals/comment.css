@@ -1,12 +1,27 @@
 .userComments {
   text-align: right;
+  background-color: rgb(159, 209, 206);
+  border-radius: 20px;
+  padding-right: 4px;
+  padding-left: 4px;
+  margin-top: 5px;
 }
 
-/* .allComments {
+.allComments {
+  background-color: darkgrey;
+  border-radius: 20px;
+  padding-right: 4px;
+  padding-left: 4px;
+  margin-top: 5px;
 
-} */
+}
 
 .commentContainer {
   overflow: auto;
   height: 100px;
+  margin-bottom: 15px;
+}
+
+.textField {
+  margin-top: 10px;
 }
