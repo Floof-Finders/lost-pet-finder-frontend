@@ -1,11 +1,8 @@
 import {
 	Button,
-	Row,
-	Col,
 	Modal,
 	Container,
 	Form,
-	Card,
 } from 'react-bootstrap';
 import './comment.css';
 import { TextField } from '@mui/material';
