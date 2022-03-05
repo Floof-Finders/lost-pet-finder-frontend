@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import axios from 'axios';
+{/*import axios from 'axios'; */}
 import Main from './components/Main';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
