@@ -117,7 +117,7 @@ export default function PetInfoModal(props) {
             </Col>
           </Row>
         </Container>
-//         <Container>
+{/*         <Container>
 //           <img
 //             async
 //             defer
@@ -127,7 +127,7 @@ export default function PetInfoModal(props) {
 // 						alt={'Come back to this alt requirement later'}
 // 						zoom={15}
 //           />
-//         </Container>
+//         </Container> */}
         <Container className="commentContainer">
           {commentArray &&
             commentArray.reverse().map((comment) => {
