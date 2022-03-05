@@ -3,12 +3,14 @@ import { Modal, Button, Form } from 'react-bootstrap';
 export default function UserModal(props) {
 	function handleSubmit(e) {
 		e.preventDefault();
+		let username = e.target.username.value;
 		let firstName = e.target.firstName.value;
 		let lastName = e.target.lastName.value;
 		let password = e.target.password.value;
 		let role = e.target.role.value;
 
 		props.handleUserData({
+			username,
 			firstName,
 			lastName,
 			password,
@@ -23,6 +25,11 @@ export default function UserModal(props) {
 				</Modal.Header>
 				<Modal.Body>
 					<Form onSubmit={handleSubmit}>
+						<Form.Group controlId='username'>
+							<Form.Label>UserName</Form.Label>
+							<Form.Control required type='text' />
+						</Form.Group>
+
 						<Form.Group controlId='firstName'>
 							<Form.Label>First Name</Form.Label>
 							<Form.Control required type='text' />

@@ -1,14 +1,26 @@
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import './Landing.css';
-import PetInfoModal from '../modals/PetInfoModal';
-import { useState } from 'react';
+import LostPetModal from '../modals/LostPetModal';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 let placeholder = 'http://placehold.jp/3d4070/ffffff/150x50.png?text=Profile%20image'
 export default function Landing(props) {
-	let lostPetArray = [1, 2, 3, 4];
+	let [ lostPetArray, setLostPetArray ] = useState();
 
 	const [showComment, setShowComment] = useState(false);
+
+	useEffect(() => {
+		getPetData()
+	}, [])
+	
+	async function getPetData() {
+		let petData = await axios.get(
+			`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
+		);
+		console.log('petData:', petData.data);
+		setLostPetArray(petData.data)
+	}
 
 	async function handleCommentData(commentInfo) {
 		let response = await axios.post(`${process.env.REACT_APP_BACKEND_SERVER}/comment-creation`, commentInfo)
@@ -32,12 +44,12 @@ export default function Landing(props) {
 			<button>Post Found pet</button>
 
 			<Row xs={1} md={2} className='g-4 petCards'>
-				{lostPetArray.map((pet, id) => (
+				{lostPetArray && lostPetArray.map((pet, id) => (
 					<Col key={id}>
 						<Card style={{ width: '18rem' }}>
 							<Card.Img variant='top' src={placeholder} />
 							<Card.Body>
-								<Card.Title>Card Title</Card.Title>
+								<Card.Title>{pet.petName}</Card.Title>
 								<Button 
 									variant='primary' 
 									onClick={() => setShowComment(true)}
@@ -47,15 +59,19 @@ export default function Landing(props) {
 								<Button variant='danger'>Seen Near Me!</Button>
 							</Card.Body>
 						</Card>
+
+						{/* Filter through pets by ID
+						When clicked on pet info, send the id of that pet into the modal?  */}
+						<LostPetModal 
+						pet={pet}
+						showComment={showComment} 
+						onHide={() => setShowComment(false)} 
+						handleCommentData={handleCommentData}
+						/>
 					</Col>
 				))}
 			</Row>
 
-			<PetInfoModal 
-			showComment={showComment} 
-			onHide={() => setShowComment(false)} 
-			handleCommentData={handleCommentData}
-			/>
 		</div>
 	);
 }
