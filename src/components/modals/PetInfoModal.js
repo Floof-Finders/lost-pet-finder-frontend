@@ -65,7 +65,7 @@ export default function PetInfoModal(props) {
     });
   }
 
-//   function handleErrors(error) {
+  {/*   function handleErrors(error) {
 //     let errMsg = 'Error with saving location. Please try again later.';
 //     if (error) {
 //       return errMsg;
@@ -84,7 +84,7 @@ export default function PetInfoModal(props) {
 //     }
 //   }
 
-  // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+  // <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script> */}
 
   return (
     <Modal
