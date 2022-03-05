@@ -87,7 +87,10 @@ export default function Profile(props) {
 										<Card.Text>Medical Conditions: N/A</Card.Text>
 
 										<Button onClick={() => setShowPet(true)} variant='primary'>
-											Update Pet
+											Update Pet Profile
+										</Button>
+										<Button onClick={() => setShowPet(true)} variant='primary'>
+											Post To Lost Pets 
 										</Button>
 									</Card.Body>
 								</Card>
