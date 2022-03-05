@@ -1,4 +1,6 @@
 import './Main.css';
+import AuthForm from './auth/AuthForm';
+
 export default function main(props) {
 	return (
 		<section
@@ -6,6 +8,7 @@ export default function main(props) {
 			style={{ width: props.overAllWidth, height: '100vh' }}
 		>
 			<h1>Main Component</h1>
+			<AuthForm />
 		</section>
 	);
 }
