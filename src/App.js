@@ -15,9 +15,9 @@ function App() {
 	const [showButton, setShowButton] = useState(true);
 
 	const openSideNav = () => {
-		setWidth('20%');
-		setOverAllWidth('80%');
-		setShowButton(false);
+		setWidth('10%');
+		setOverAllWidth('90%');
+		setShowButton(false)
 	};
 
 	const closeSideNav = () => {

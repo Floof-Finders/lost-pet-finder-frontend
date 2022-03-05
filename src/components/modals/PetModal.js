@@ -7,26 +7,28 @@ export default function PetModal(props) {
 	async function handleSubmit(e) {
 		e.preventDefault();
 		let petName = e.target.name.value;
-		let petDescription = e.target.description.value;
-		let petAge = e.target.age.value;
-		let petBreed = e.target.breed.value;
-		let petLost = e.target.lostLocation.value;
-		let petMedical = e.target.medical.value;
-		let petTracker = e.target.tracker.value;
-		let petReward = e.target.reward.value;
+		let description = e.target.description.value;
+		let age = e.target.age.value;
+		let breed = e.target.breed.value;
+		let lostLocation = e.target.lostLocation.value;
+		let medicalConditions = e.target.medical.value;
+		let trackerChip = e.target.tracker.value;
+		let lostOrFound = e.target.lost.value;
+		let reward = e.target.reward.value;
 
 		let userID = await axios.get(`${process.env.REACT_APP_BACKEND_SERVER}/user-info`)
 
 		props.handlePetData({
 			petName,
 			userID: userID.data[0].userID ? userID.data[0].userID : uuidv4,
-			petDescription,
-			petAge,
-			petBreed,
-			petLost,
-			petMedical,
-			petTracker,
-			petReward,
+			description,
+			age,
+			breed,
+			lostLocation,
+			medicalConditions,
+			trackerChip,
+			lostOrFound,
+			reward,
 		});
 	}
 	return (
@@ -83,9 +85,18 @@ export default function PetModal(props) {
 							</Form.Select>
 						</Form.Group>
 
+						<Form.Group controlId='lost'>
+							<Form.Label>Lost or Found</Form.Label>
+							<Form.Select aria-label='Default select example'>
+								<option>Select Lost or Found</option>
+								<option value='yes'>Lost</option>
+								<option value='no'>Found</option>
+							</Form.Select>
+						</Form.Group>
+
 						<Form.Group controlId='reward'>
 							<Form.Label>Reward</Form.Label>
-							<Form.Control type='text' />
+							<Form.Control type='number' />
 						</Form.Group>
 					<Button 
 						variant='primary' 

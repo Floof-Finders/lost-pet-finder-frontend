@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Card, Button, Row, Col } from 'react-bootstrap';
 import UserModal from '../modals/UserModal';
 import PetModal from '../modals/PetModal';
 import './Profile.css';
 import axios from 'axios';
+import PetInfo from '../pet/PetInfo';
+
+let placeholder =
+	'http://via.placeholder.com/100x100.png?text=Pet+Picture+Here';
 
 export default function Profile(props) {
 	const [showUser, setShowUser] = useState(false);
 	const [showPet, setShowPet] = useState(false);
-	let lostPetArr = [1, 2, 3, 4];
+
+	let [ lostPetArray, setLostPetArray ] = useState();
+
+	useEffect(() => {
+		getPetData()
+	}, [])
+	
+	async function getPetData() {
+		let petData = await axios.get(
+			`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
+		);
+		console.log('petData:', petData.data);
+		setLostPetArray(petData.data)
+	}
 
 	async function handlePetData(petInfo) {
 		let response = await axios.post(
@@ -61,6 +78,9 @@ export default function Profile(props) {
 									<Button onClick={() => setShowUser(true)} variant='primary'>
 										Update Profile
 									</Button>
+
+									<Button onClick={() => setShowPet(true)} >Add a new Pet</Button>
+
 								</Card.Body>
 							</Card>
 						</Container>
@@ -68,7 +88,7 @@ export default function Profile(props) {
 				</Row>
 				<div className='petCardContainerOutside'>
 					<Row xs={1} md={2} className='g-4 petCardContainer'>
-						{lostPetArr.map((pet, id) => (
+						{lostPetArray && lostPetArray.map((pet, id) => (
 							<Col key={id}>
 								<Card className='petCard' style={{ width: '25rem' }}>
 									<Card.Img
@@ -76,15 +96,8 @@ export default function Profile(props) {
 										src='http://placehold.jp/286x180.png'
 									/>
 									<Card.Body className='petCard'>
-										<Card.Title>Pet Name</Card.Title>
-										<Card.Text>
-											Pet Bio: Lorem Ipsum is simply dummy text of the printing
-											and typesetting industry.
-										</Card.Text>
-										<Card.Text>Type: Dog</Card.Text>
-										<Card.Text>Breed: Shih Tzu</Card.Text>
-										<Card.Text>Age: 8</Card.Text>
-										<Card.Text>Medical Conditions: N/A</Card.Text>
+
+										<PetInfo pet={pet} placeholder={placeholder}/>
 
 										<Button onClick={() => setShowPet(true)} variant='primary'>
 											Update Pet
