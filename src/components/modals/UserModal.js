@@ -1,48 +1,61 @@
 import { Modal, Button, Form } from 'react-bootstrap';
 
 export default function UserModal(props) {
-  return (
-    <>
-      <Modal {...props}>
+	function handleSubmit(e) {
+		e.preventDefault();
+		let firstName = e.target.firstName.value;
+		let lastName = e.target.lastName.value;
+		let password = e.target.password.value;
+		let role = e.target.role.value;
+
+		props.handleUserData({
+			firstName,
+			lastName,
+			password,
+			role,
+		});
+	}
+	return (
+		<>
+			<Modal show={props.showUser} onHide={props.onHide}>
 				<Modal.Header closeButton>
 					<Modal.Title>User Information</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<Form.Label>Full Name</Form.Label>
-					<Form.Control
-						required
-						type="text"
-					/>
-					<Form.Label>Email</Form.Label>
-					<Form.Control
-						required
-						type="text"
-					/>
-					<Form.Label>Phone Number</Form.Label>
-					<Form.Control
-						required
-						type="text"
-					/>
-					<Form.Label>Address</Form.Label>
-					<Form.Control
-						required
-						type="text"
-					/>
-					<Form.Label>Pets</Form.Label>
-					<Form.Control
-						required
-						type="text"
-					/>
+					<Form onSubmit={handleSubmit}>
+						<Form.Group controlId='firstName'>
+							<Form.Label>First Name</Form.Label>
+							<Form.Control required type='text' />
+						</Form.Group>
+
+						<Form.Group controlId='lastName'>
+							<Form.Label>Last Name</Form.Label>
+							<Form.Control required type='text' />
+						</Form.Group>
+
+						<Form.Group controlId='password'>
+							<Form.Label>Password</Form.Label>
+							<Form.Control required type='text' />
+						</Form.Group>
+
+						<Form.Group controlId='role'>
+							<Form.Label>Role</Form.Label>
+							<Form.Select aria-label='Default select example'>
+								<option>Select Role</option>
+								<option value='user'>User</option>
+								<option value='writer'>Writer</option>
+								<option value='editor'>Editor</option>
+								<option value='admin'>Admin</option>
+							</Form.Select>
+						</Form.Group>
+
+						<Button variant='secondary' type='submit' onClick={props.onHide}>
+							Close
+						</Button>
+					</Form>
 				</Modal.Body>
-				<Modal.Footer>
-					<Button variant="secondary" onClick={props.onHide}>
-						Close
-					</Button>
-					{/* <Button variant="primary" onClick={handleCloseUser}>
-						Save Changes
-					</Button> */}
-				</Modal.Footer>
+				<Modal.Footer></Modal.Footer>
 			</Modal>
-    </>
-  );
+		</>
+	);
 }

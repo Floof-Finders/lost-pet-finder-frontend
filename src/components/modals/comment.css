@@ -1,0 +1,12 @@
+.userComments {
+  text-align: right;
+}
+
+/* .allComments {
+
+} */
+
+.commentContainer {
+  overflow: auto;
+  height: 100px;
+}

@@ -9,19 +9,19 @@ export default function Nav(props) {
     }}>
 
     <nav >
-      <aside className='exitNav' onClick={props.closeSideNav}>{<CancelPresentationIcon/>}</aside>
+      <aside className='exitNav'  onClick={props.closeSideNav}>{<CancelPresentationIcon fontSize='large'/>}</aside>
       <ul>
-        <li>
-          <Link to='/'>Home</Link>
+        <li className='navListLi'>
+          <Link className='navLink' to='/'>Home</Link>
         </li>
-        <li>
-          <Link to='landing'>Landing</Link>
+        <li className='navListLi'>
+          <Link className='navLink' to='landing'>Landing</Link>
         </li>
-        <li>
-          <Link to="profile">Profile</Link>
+        <li className='navListLi'>
+          <Link className='navLink' to="profile">Profile</Link>
         </li>
-        <li>
-          <Link to='about'>About Us</Link>
+        <li className='navListLi'>
+          <Link  className='navLink'to='about'>About Us</Link>
         </li>
       </ul>
     </nav>

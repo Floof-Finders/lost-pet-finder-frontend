@@ -14,7 +14,7 @@ export default function Header(props) {
 			{props.showButton ? (
 				<span className='openNav' onClick={() => props.openSideNav()}>
 					<MenuRoundedIcon 
-					color="action"
+					// color="action"
 					fontSize="large"
 					/>
 				</span>

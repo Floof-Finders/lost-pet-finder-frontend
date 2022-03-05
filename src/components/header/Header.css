@@ -1,5 +1,6 @@
 header {
-  background-color: rgb(102, 100, 104);
+  background-color: rgb(128, 0, 0);
+  color: aliceblue;
 }
 
 header > h1 {

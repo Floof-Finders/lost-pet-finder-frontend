@@ -2,11 +2,19 @@ import { Card, Button, Row, Col } from 'react-bootstrap';
 import './Landing.css';
 import PetInfoModal from '../modals/PetInfoModal';
 import { useState } from 'react';
+import axios from 'axios';
 
+let placeholder = 'http://placehold.jp/3d4070/ffffff/150x50.png?text=Profile%20image'
 export default function Landing(props) {
 	let lostPetArray = [1, 2, 3, 4];
 
-	const [modalShow, setModalShow] = useState(false);
+	const [showComment, setShowComment] = useState(false);
+
+	async function handleCommentData(commentInfo) {
+		let response = await axios.post(`${process.env.REACT_APP_BACKEND_SERVER}/comment-creation`, commentInfo)
+
+		console.log('response:', response.data);
+	}
 
 	return (
 		<div style={{width: props.overAllWidth}} className='landing'>
@@ -27,12 +35,12 @@ export default function Landing(props) {
 				{lostPetArray.map((pet, id) => (
 					<Col key={id}>
 						<Card style={{ width: '18rem' }}>
-							<Card.Img variant='top' src='holder.js/100px180' />
+							<Card.Img variant='top' src={placeholder} />
 							<Card.Body>
 								<Card.Title>Card Title</Card.Title>
 								<Button 
 									variant='primary' 
-									onClick={() => setModalShow(true)}
+									onClick={() => setShowComment(true)}
 								>
 									View More
 								</Button>
@@ -44,8 +52,9 @@ export default function Landing(props) {
 			</Row>
 
 			<PetInfoModal 
-			show={modalShow} 
-			onHide={() => setModalShow(false)} 
+			showComment={showComment} 
+			onHide={() => setShowComment(false)} 
+			handleCommentData={handleCommentData}
 			/>
 		</div>
 	);
