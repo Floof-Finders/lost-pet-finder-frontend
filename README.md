@@ -150,9 +150,10 @@ axios.request(options).then(function (response) {
 
 Our application is to bring animals back to their owners in the fast way using technology and not having to rely specifically on friends and posters to post around town.
 
-### Heroku Deployment
+### Deployment
 
-[Heroku Deployment]()
+[Heroku Deployment](https://lost-pet-finder-backend.herokuapp.com/)
+[Netlify Deployment](https://lost-pet-finder-frontend.netlify.app/)
 
 ## Public Routes
 

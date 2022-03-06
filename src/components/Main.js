@@ -1,7 +1,8 @@
 import './Main.css';
 import AuthForm from './auth/AuthForm';
+import { withAuth0 } from '@auth0/auth0-react';
 
-export default function main(props) {
+function main(props) {
 	return (
 		<section
 			className='Main'
@@ -12,3 +13,5 @@ export default function main(props) {
 		</section>
 	);
 }
+
+export default withAuth0(main)
