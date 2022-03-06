@@ -1,23 +1,27 @@
-#Card.Img{
-  width: 65%;
-  border-radius: 50%;
+/* #Card.Img{ */
+  /* width: 65%; */
+  /* border-radius: 50%; */
   /* margin: 0 auto; */
-  box-shadow: 0 0 10px rgba(0,0,0,.2);
-}
+  /* box-shadow: 0 0 10px rgba(0,0,0,.2); */
+/* } */
 
 .petCard {
   padding: 5px;
   background-color: rgb(159, 209, 206);
   /* color: aliceblue; */
-
+  
 }
 
 .background {
   background-color: #FCF7F8;
+  
 }
 
 .profileBackground {
   background-color: #5F9EA0;
+  /* height: 100%; */
+  /* width: auto
+  ; */
   /* width: 108px; */
 }
 
@@ -30,4 +34,26 @@
   margin: auto;
   width: 35%;
   /* background-color: blue; */
+  /* border: #000000 3px solid; */
+}
+
+.userInfo {
+  float: left;
+  /* border: #000000 3px solid; */
+  /* width: 400px; */
+  margin: 30px;
+
+}
+
+.onButton {
+  display: inline-block;
+  /* background-color: #000000; */
+  margin: 10px;
+}
+
+.currentPetsHeader {
+  text-align: center;
+  margin: 50px;
+  border: #212525 solid 2px;
+  /* padding: 50px */
 }

@@ -35,7 +35,6 @@ const AuthForm = () => {
 		let password = e.target.password.value;
 		state.login(username, password);
 	};
-  const {loginWithRedirect} = useAuth0()
 
 	let loginDisplay = state.loggedIn ? (
 		<Button onClick={state.logout}>Logout</Button>
@@ -43,9 +42,6 @@ const AuthForm = () => {
 		<Container fluid>
 			<AuthSignUpForm handleSignUpSubmit={handleSignUpSubmit} />
 			<AuthSignInForm handleLogInSubmit={handleLogInSubmit} />
-
-			<Button variant='danger' onClick={() => loginWithRedirect()}>Log In</Button>
-
 		</Container>
 	);
 

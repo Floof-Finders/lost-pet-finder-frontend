@@ -24,7 +24,9 @@ export default function PetInfoModal(props) {
 		// TODO: Create get request to get user's info on load
 		getComments();
 	}, []);
+
 	console.log('PET PROPS', props.pet);
+	
 	async function getComments() {
 		let comments = await axios.get(
 			`${process.env.REACT_APP_BACKEND_SERVER}/comment-info`
@@ -65,7 +67,7 @@ export default function PetInfoModal(props) {
 		}, 5);
 		return () => clearTimeout(timer);
 	}
-	
+
 	// function handleErrors(error) {
 	// 	let errMsg = 'Error with saving location. Please try again later.';
 	// 	if (error) {
@@ -114,7 +116,9 @@ export default function PetInfoModal(props) {
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body className='show-grid'>
+
 				<PetInfo pet={props.pet} placeholder={placeholder} />
+
 				<Container >
 
 					
