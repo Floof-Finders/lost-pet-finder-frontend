@@ -12,7 +12,7 @@ let placeholder =
 export default function Profile(props) {
 	const [showUser, setShowUser] = useState(false);
 	const [showPet, setShowPet] = useState(false);
-	const [userInfo, setUserInfo] = useState()
+	// const [userInfo, setUserInfo] = useState()
 
 	let [lostPetArray, setLostPetArray] = useState();
 
@@ -48,9 +48,9 @@ export default function Profile(props) {
 	}
 
 	async function handleGetUser() {
-		let userID = await axios.get(
-			`${process.env.REACT_APP_BACKEND_SERVER}/user-info`
-		);
+		// let userID = await axios.get(
+		// 	`${process.env.REACT_APP_BACKEND_SERVER}/user-info`
+		// );
 		// setUserInfo(userID);
 	}
 

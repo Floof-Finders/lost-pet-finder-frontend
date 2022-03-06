@@ -14,7 +14,9 @@ function App(props) {
 	const [width, setWidth] = useState('0%');
 	const [overAllWidth, setOverAllWidth] = useState('100%');
 	const [showButton, setShowButton] = useState(true);
-	const { user, isAuthenticated } = props.auth0;
+	const {
+		//  user, 
+		 isAuthenticated } = props.auth0;
 	console.log('isAuth?',isAuthenticated)
 
 	const openSideNav = () => {
