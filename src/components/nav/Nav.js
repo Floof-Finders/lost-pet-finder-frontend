@@ -15,7 +15,7 @@ export default function Nav(props) {
           <Link className='navLink' to='/'>Home</Link>
         </li>
         <li className='navListLi'>
-          <Link className='navLink' to='landing'>Landing</Link>
+          <Link className='navLink' to='lostOrFound'>Lost/Found</Link>
         </li>
         <li className='navListLi'>
           <Link className='navLink' to="profile">Profile</Link>

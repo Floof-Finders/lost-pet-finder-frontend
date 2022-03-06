@@ -6,18 +6,21 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Profile from '../src/components/profile/Profile';
 import AboutUs from './components/aboutUs/AboutUs';
-import Landing from './components/landing/Landing';
+import LostOrFound from './components/lostOrFound/LostOrFound';
 import AuthProvider from './context/authContext';
+import { withAuth0 } from '@auth0/auth0-react';
 
-function App() {
+function App(props) {
 	const [width, setWidth] = useState('0%');
 	const [overAllWidth, setOverAllWidth] = useState('100%');
 	const [showButton, setShowButton] = useState(true);
+	const { user, isAuthenticated } = props.auth0;
+	console.log('isAuth?',isAuthenticated)
 
 	const openSideNav = () => {
 		setWidth('10%');
 		setOverAllWidth('90%');
-		setShowButton(false)
+		setShowButton(false);
 	};
 
 	const closeSideNav = () => {
@@ -30,7 +33,7 @@ function App() {
 		<AuthProvider>
 			<div
 				className='App'
-			// style={{width: overAllWidth}}
+				// style={{width: overAllWidth}}
 			>
 				<div className='App-header'>
 					<Header
@@ -40,16 +43,22 @@ function App() {
 						openSideNav={openSideNav}
 					/>
 					<Routes>
+						<Route path='/' element={<Main overAllWidth={overAllWidth} />} />
 						<Route
-							path='/'
-							element={<Main overAllWidth={overAllWidth} />} />
-						<Route
-							path='landing'
-							element={<Landing overAllWidth={overAllWidth} />}
+							path='lostOrFound'
+							element={<LostOrFound overAllWidth={overAllWidth} />}
 						/>
 						<Route
 							path='about'
-							element={<AboutUs overAllWidth={overAllWidth} />}
+							element={
+								isAuthenticated ? (
+									<>
+										<AboutUs overAllWidth={overAllWidth} />
+									</>
+								) : (
+									''
+								)
+							}
 						/>
 						<Route
 							path='profile'
@@ -63,4 +72,4 @@ function App() {
 	);
 }
 
-export default App;
+export default withAuth0(App);

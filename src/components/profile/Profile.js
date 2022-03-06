@@ -12,19 +12,21 @@ let placeholder =
 export default function Profile(props) {
 	const [showUser, setShowUser] = useState(false);
 	const [showPet, setShowPet] = useState(false);
+	const [userInfo, setUserInfo] = useState()
 
-	let [ lostPetArray, setLostPetArray ] = useState();
+	let [lostPetArray, setLostPetArray] = useState();
 
 	useEffect(() => {
-		getPetData()
-	}, [])
-	
+		getPetData();
+		handleGetUser();
+	}, []);
+
 	async function getPetData() {
 		let petData = await axios.get(
 			`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
 		);
 		console.log('petData:', petData.data);
-		setLostPetArray(petData.data)
+		setLostPetArray(petData.data);
 	}
 
 	async function handlePetData(petInfo) {
@@ -43,6 +45,13 @@ export default function Profile(props) {
 		);
 
 		console.log('reponse:', response.data);
+	}
+
+	async function handleGetUser() {
+		let userID = await axios.get(
+			`${process.env.REACT_APP_BACKEND_SERVER}/user-info`
+		);
+		// setUserInfo(userID);
 	}
 
 	return (
@@ -79,8 +88,9 @@ export default function Profile(props) {
 										Update Profile
 									</Button>
 
-									<Button onClick={() => setShowPet(true)} >Add a new Pet</Button>
-
+									<Button onClick={() => setShowPet(true)}>
+										Add a new Pet
+									</Button>
 								</Card.Body>
 							</Card>
 						</Container>
@@ -88,24 +98,27 @@ export default function Profile(props) {
 				</Row>
 				<div className='petCardContainerOutside'>
 					<Row xs={1} md={2} className='g-4 petCardContainer'>
-						{lostPetArray && lostPetArray.map((pet, id) => (
-							<Col key={id}>
-								<Card className='petCard' style={{ width: '25rem' }}>
-									<Card.Img
-										variant='top'
-										src='http://placehold.jp/286x180.png'
-									/>
-									<Card.Body className='petCard'>
+						{lostPetArray &&
+							lostPetArray.map((pet, id) => (
+								<Col key={id}>
+									<Card className='petCard' style={{ width: '25rem' }}>
+										<Card.Img
+											variant='top'
+											src='http://placehold.jp/286x180.png'
+										/>
+										<Card.Body className='petCard'>
+											<PetInfo pet={pet} placeholder={placeholder} />
 
-										<PetInfo pet={pet} placeholder={placeholder}/>
-
-										<Button onClick={() => setShowPet(true)} variant='primary'>
-											Update Pet
-										</Button>
-									</Card.Body>
-								</Card>
-							</Col>
-						))}
+											<Button
+												onClick={() => setShowPet(true)}
+												variant='primary'
+											>
+												Update Pet
+											</Button>
+										</Card.Body>
+									</Card>
+								</Col>
+							))}
 					</Row>
 				</div>
 				<UserModal

@@ -1,14 +1,10 @@
-import {
-	Button,
-	Modal,
-	Container,
-	Form,
-} from 'react-bootstrap';
+import { Button, Modal, Container, Form } from 'react-bootstrap';
 import './comment.css';
 import { TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
 // import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+// import { Wrapper, Status } from '@googlemaps/react-wrapper';
 import PetInfo from '../pet/PetInfo';
 
 let placeholder =
@@ -21,6 +17,7 @@ export default function PetInfoModal(props) {
 	]);
 	const [comment, setComment] = useState('');
 	const [userId, setUserId] = useState();
+	// const [map, setMap] = useState();
 
 	// DONE: Make this a useEffect to update comments on render
 	useEffect(() => {
@@ -34,6 +31,7 @@ export default function PetInfoModal(props) {
 		);
 		setCommentArray(comments.data);
 	}
+
 
 	async function handleSubmit(e) {
 		e.preventDefault();
@@ -67,6 +65,41 @@ export default function PetInfoModal(props) {
 		}, 5);
 		return () => clearTimeout(timer);
 	}
+	
+	// function handleErrors(error) {
+	// 	let errMsg = 'Error with saving location. Please try again later.';
+	// 	if (error) {
+	// 		return errMsg;
+	// 	}
+	// }
+	
+	// const render = (status: Status) => {
+	// 	return <h1>{status}</h1>;
+	// };
+
+	// look up react.fc
+	//const Map = React.FC<{}> = () => {};
+
+// 	async function getLocation(e) {
+// 		e.preventDefault();
+// 		try {
+// 			let lostPet = { lat: 47.034440, lon: -122.470210 };
+// 			const map = new google.maps.Map(document.getElementById("map"), {
+// 				zoom: 16,
+// 				center: lostPet,
+// 			});
+// 			const marker = new google.maps.Marker({
+// 				position: lostPet,
+// 				map: map,
+// 			});
+// 		} catch (error) {
+// 			this.handleErrors();
+// 	}
+// }
+
+			// let lostLocation = await axios.get(
+			// 	`https://us1.locationiq.com/v1/reverse.php?key=${process.env.REACT_APP_LOCATIONIQ_API}&lat=LATITUDE&lon=LONGITUDE&format=json&zoom=16`
+			// );
 
 	return (
 		<Modal
@@ -81,9 +114,33 @@ export default function PetInfoModal(props) {
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body className='show-grid'>
-
 				<PetInfo pet={props.pet} placeholder={placeholder} />
+				<Container >
 
+					
+					{/* <Wrapper apiKey={process.env.REACT_APP_GOOGLE_MAPS_API} render={render} > */}
+						
+						{/* <script
+							async
+							defer
+							src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API}&callback=getLocation&libraries=&v=weekly`}
+							alt={'come back to this later'}
+						>
+						</script> */}
+					{/* </Wrapper> */}
+					{/* Location IQ 
+					 <img
+             async
+             defer
+ 						title={'Place where pet was lost'}
+             src={`https://us1.locationiq.com/v1/reverse.php?key=${process.env.REACT_APP_LOCATIONIQ_API}&lat=LATITUDE&lon=LONGITUDE&format=json&zoom=16`}
+ 						// TODO: COME back and fix this to alt description from the center of map?
+ 						alt={'Come back to this alt requirement later'}
+						//  need to have address: addressdetails=1 in the response
+						// how to put house_number, road, neighbourhood, city, state_code, postcode in response
+						// try also normalizeaddress=1
+           /> */}
+				</Container>
 				<Container className='commentContainer'>
 					{commentArray &&
 						commentArray.reverse().map((comment) => {
