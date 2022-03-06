@@ -32,7 +32,7 @@ export default function Landing(props) {
 	}
 
 	async function handleCommentData(commentInfo) {
-		let response = await axios.post(
+		await axios.post(
 			`${process.env.REACT_APP_BACKEND_SERVER}/comment-creation`,
 			commentInfo
 		);

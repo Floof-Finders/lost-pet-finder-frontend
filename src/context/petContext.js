@@ -1,4 +1,3 @@
-'use strict';
 import { useState, createContext } from 'react';
 
 export const PetContext = createContext({});

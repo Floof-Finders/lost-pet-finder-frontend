@@ -4,8 +4,7 @@ import { AuthContext } from '../../context/authContext';
 import AuthSignUpForm from './AuthSignUpForm';
 import AuthSignInForm from './AuthSignInForm';
 import axios from 'axios';
-import { useAuth0, withAuth0 } from '@auth0/auth0-react';
-
+import { withAuth0 } from '@auth0/auth0-react';
 
 const AuthForm = () => {
 	const state = useContext(AuthContext);
