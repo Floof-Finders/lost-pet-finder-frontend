@@ -23,7 +23,7 @@ export default function Landing(props) {
 			setPetArray({pets: petData.data});
 		}
 		getPetData();
-	}, []);
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	let filteredPet = (id) => {
 		let pet = petArray.pets.filter((pet) => pet.petID === id);
