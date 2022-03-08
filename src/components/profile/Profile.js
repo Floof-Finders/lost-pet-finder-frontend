@@ -18,8 +18,9 @@ export default function Profile(props) {
 	let { petArray, setPetArray } = useContext(PetContext);
 
 	useEffect(() => {
-		getPetData();
+		getPetData();// eslint-disable-line react-hooks/exhaustive-deps
 		handleGetUser();
+
 	}, []);// eslint-disable-line react-hooks/exhaustive-deps
 
 	async function getPetData() {
