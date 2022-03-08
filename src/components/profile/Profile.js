@@ -20,7 +20,7 @@ export default function Profile(props) {
 	useEffect(() => {
 		getPetData();
 		handleGetUser();
-	}, []);
+	}, []);// eslint-disable-line react-hooks/exhaustive-deps
 
 	async function getPetData() {
 		let petData = await axios.get(
@@ -54,24 +54,24 @@ export default function Profile(props) {
 	}
 
 	// TODO: Use this??
-	async function handleUpdatePet (petInfo) {
-		try {
-			await axios.put(`${process.env.REACT_APP_BACKEND_SERVER}/pet-update/${petInfo._id}`, petInfo)
+	// async function handleUpdatePet (petInfo) {
+	// 	try {
+	// 		await axios.put(`${process.env.REACT_APP_BACKEND_SERVER}/pet-update/${petInfo._id}`, petInfo)
 
-			const updatedPets = petArray.pets.map(petToUpdate => {
-				if(petToUpdate._id === petInfo._id) {
-					return petInfo
-				} else {
-					return petToUpdate
-				}
-			})
+	// 		const updatedPets = petArray.pets.map(petToUpdate => {
+	// 			if(petToUpdate._id === petInfo._id) {
+	// 				return petInfo
+	// 			} else {
+	// 				return petToUpdate
+	// 			}
+	// 		})
 
-			setPetArray({pets: updatedPets});
+	// 		setPetArray({pets: updatedPets});
 
-		} catch (e) {
-			console.log(e)
-		}
-	} 
+	// 	} catch (e) {
+	// 		console.log(e)
+	// 	}
+	// } 
 
 	return (
 		<div className='background'>
