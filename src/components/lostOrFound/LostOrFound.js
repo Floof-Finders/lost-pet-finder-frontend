@@ -16,14 +16,16 @@ export default function Landing(props) {
 	const [showPet, setShowPet] = useState();
 
 	useEffect(() => {
-		async function getPetData() {
-			let petData = await axios.get(
-				`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
-			);
-			setPetArray({pets: petData.data});// eslint-disable-line react-hooks/exhaustive-deps
-		}
+		
 		getPetData(); // eslint-disable-line react-hooks/exhaustive-deps
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+	async function getPetData() {
+		let petData = await axios.get(
+			`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
+		);
+		setPetArray({pets: petData.data});
+	}
 
 	let filteredPet = (id) => {
 		let pet = petArray.pets.filter((pet) => pet.petID === id);
