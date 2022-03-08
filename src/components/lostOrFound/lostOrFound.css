@@ -1,0 +1,10 @@
+.landing {
+  text-align: center;
+}
+
+.petCards {
+  /* margin-top: 50%; */
+  text-align: center;
+  width: 70%;
+  border: red solid 4px
+}

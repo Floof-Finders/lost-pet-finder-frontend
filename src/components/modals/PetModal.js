@@ -42,12 +42,12 @@ export default function PetModal(props) {
 
 						<Form.Group controlId='name'>
 							<Form.Label>Pet Name</Form.Label>
-							<Form.Control required type='text' />
+							<Form.Control required type='text' maxlength="255" />
 						</Form.Group>
 
 						<Form.Group controlId='description'>
 							<Form.Label>Description</Form.Label>
-							<Form.Control required type='text' />
+							<Form.Control required type='text' maxlength="255"/>
 						</Form.Group>
 
 						<Form.Group controlId='age'>
@@ -63,17 +63,17 @@ export default function PetModal(props) {
 
 						<Form.Group controlId='breed'>
 							<Form.Label>Breed</Form.Label>
-							<Form.Control type='text' />
+							<Form.Control type='text' maxlength="255"/>
 						</Form.Group>
 
 						<Form.Group controlId='lostLocation'>
 							<Form.Label>Lost Location Temporary here</Form.Label>
-							<Form.Control required type='text' />
+							<Form.Control required type='text' maxlength="255"/>
 						</Form.Group>
 
 						<Form.Group controlId='medical'>
 							<Form.Label>Current Medical Conditions</Form.Label>
-							<Form.Control type='text' />
+							<Form.Control type='text' maxlength="255"/>
 						</Form.Group>
 
 						<Form.Group controlId='tracker'>
@@ -96,7 +96,7 @@ export default function PetModal(props) {
 
 						<Form.Group controlId='reward'>
 							<Form.Label>Reward</Form.Label>
-							<Form.Control type='number' />
+							<Form.Control type='number' maxlength="255"/>
 						</Form.Group>
 					<Button 
 						variant='primary' 

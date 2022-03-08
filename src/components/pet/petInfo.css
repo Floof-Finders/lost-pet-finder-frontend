@@ -1,0 +1,26 @@
+.name {
+  font-size: x-large;
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: aqua;
+  /* width: auto; */
+  /* margin: 0px 100px  100px 0px ; */
+  border-radius: 10px 100px / 120px;
+}
+
+.description {
+  border-radius: 30px;
+  background-color: #FCF7F8;
+  max-height: 100px;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.info {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #FCF7F8;
+  max-height: 100px;
+  overflow: auto;
+  padding: 2px;
+}
