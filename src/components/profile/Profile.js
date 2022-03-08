@@ -53,6 +53,7 @@ export default function Profile(props) {
 		// setUserInfo(userID);
 	}
 
+	// TODO: Use this??
 	async function handleUpdatePet (petInfo) {
 		try {
 			await axios.put(`${process.env.REACT_APP_BACKEND_SERVER}/pet-update/${petInfo._id}`, petInfo)

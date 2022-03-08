@@ -14,9 +14,9 @@ function Landing(props) {
 	const [overAllWidth, setOverAllWidth] = useState('100%');
 	const [showButton, setShowButton] = useState(true);
 	const {
-		//  user, 
+		 user, 
 		 isAuthenticated } = props.auth0;
-
+		console.log('user:', user);
 	const openSideNav = () => {
 		setWidth('10%');
 		setOverAllWidth('90%');

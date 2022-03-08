@@ -16,6 +16,12 @@ export default function Landing(props) {
 	const [showPet, setShowPet] = useState();
 
 	useEffect(() => {
+		async function getPetData() {
+			let petData = await axios.get(
+				`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
+			);
+			setPetArray({pets: petData.data});
+		}
 		getPetData();
 	}, []);
 
@@ -24,12 +30,7 @@ export default function Landing(props) {
 		setShowPet(pet[0]);
 	};
 
-	async function getPetData() {
-		let petData = await axios.get(
-			`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
-		);
-		setPetArray({pets: petData.data});
-	}
+	
 
 	async function handleCommentData(commentInfo) {
 		await axios.post(
