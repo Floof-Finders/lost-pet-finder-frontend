@@ -20,9 +20,9 @@ export default function Landing(props) {
 			let petData = await axios.get(
 				`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
 			);
-			setPetArray({pets: petData.data});
+			setPetArray({pets: petData.data});// eslint-disable-line react-hooks/exhaustive-deps
 		}
-		getPetData();
+		getPetData(); // eslint-disable-line react-hooks/exhaustive-deps
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	let filteredPet = (id) => {
