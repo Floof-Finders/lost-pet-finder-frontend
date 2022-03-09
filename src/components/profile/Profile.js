@@ -14,7 +14,7 @@ let placeholder =
 function Profile(props) {
 	const [showUser, setShowUser] = useState(false);
 	const [showPet, setShowPet] = useState(false);
-	const [cookies, setCookie] = useCookies();
+	const [cookies] = useCookies();
 
 	console.log('What is in my cookies????',cookies.user)
 

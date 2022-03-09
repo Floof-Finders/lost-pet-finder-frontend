@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './Landing.css';
 import Main from '../Main';
@@ -9,7 +9,6 @@ import AboutUs from '../aboutUs/AboutUs';
 import LostOrFound from '../lostOrFound/LostOrFound';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
-import { PetContext } from '../../context/petContext';
 import { useCookies } from 'react-cookie';
 
 function Landing(props) {
@@ -17,13 +16,13 @@ function Landing(props) {
 	const [overAllWidth, setOverAllWidth] = useState('100%');
 	const [showButton, setShowButton] = useState(true);
 	const { user, isAuthenticated } = props.auth0;
-	const [cookies, setCookie] = useCookies();
+	const [cookies, setCookie] = useCookies(); // eslint-disable-line react-hooks/exhaustive-deps
 
 	useEffect(() => {
 		if (user) {
 			saveUser();
 		}
-	}, [user]);
+	}, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
 	async function saveUser() {
 		let userInfo = {

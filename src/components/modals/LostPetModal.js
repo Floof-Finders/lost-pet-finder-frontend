@@ -11,7 +11,7 @@ let placeholder =
 
 // Pet Description
 function PetInfoModal(props) {
-	const [cookies, setCookie] = useCookies();
+	const [cookies] = useCookies();
 
 	let [commentArray, setCommentArray] = useState([
 		{ commentText: 'Comments Rendered here' },

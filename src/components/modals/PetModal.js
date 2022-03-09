@@ -1,10 +1,9 @@
 import { Modal, Button, Form } from 'react-bootstrap';
-import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
 // Pet create/update
 function PetModal(props) {
-	const [cookies, setCookie] = useCookies();
+	const [cookies] = useCookies();
 
 	async function handleSubmit(e) {
 		e.preventDefault();
