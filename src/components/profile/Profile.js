@@ -35,7 +35,7 @@ function Profile(props) {
 			`${process.env.REACT_APP_BACKEND_SERVER}/pet-creation`,
 			petInfo
 		);
-		setPetArray(response.data)
+		setPetArray({pets: response.data})
 	}
 
 	async function handleUserData(userInfo) {
