@@ -6,21 +6,25 @@ import './Profile.css';
 import axios from 'axios';
 import PetInfo from '../pet/PetInfo';
 import { PetContext } from '../../context/petContext'
+import { withAuth0 } from '@auth0/auth0-react';
+
 
 let placeholder =
 	'http://via.placeholder.com/100x100.png?text=Pet+Picture+Here';
 
-export default function Profile(props) {
+
+function Profile(props) {
 	const [showUser, setShowUser] = useState(false);
 	const [showPet, setShowPet] = useState(false);
-	// const [userInfo, setUserInfo] = useState()
+	const [userInfo, setUserInfo] = useState()
 
 	let { petArray, setPetArray } = useContext(PetContext);
 
-	useEffect(() => {
-		getPetData();// eslint-disable-line react-hooks/exhaustive-deps
-		handleGetUser();
+	const { user } = props.auth0;
 
+	useEffect(() => {
+		getPetData(); // eslint-disable-line react-hooks/exhaustive-deps
+		handleGetUser(); // eslint-disable-line react-hooks/exhaustive-deps
 	}, []);// eslint-disable-line react-hooks/exhaustive-deps
 
 	async function getPetData() {
@@ -48,54 +52,57 @@ export default function Profile(props) {
 	}
 
 	async function handleGetUser() {
-		// let userID = await axios.get(
-		// 	`${process.env.REACT_APP_BACKEND_SERVER}/user-info`
-		// );
-		// setUserInfo(userID);
+		let userID = await axios.get(
+			`${process.env.REACT_APP_BACKEND_SERVER}/user-info`
+		);
+		setUserInfo(userID);
 	}
 
 	// TODO: Use this??
-	// async function handleUpdatePet (petInfo) {
-	// 	try {
-	// 		await axios.put(`${process.env.REACT_APP_BACKEND_SERVER}/pet-update/${petInfo._id}`, petInfo)
+	async function handleUpdatePet (petInfo) {
+		try {
+			await axios.put(`${process.env.REACT_APP_BACKEND_SERVER}/pet-update/${petInfo._id}`, petInfo)
 
-	// 		const updatedPets = petArray.pets.map(petToUpdate => {
-	// 			if(petToUpdate._id === petInfo._id) {
-	// 				return petInfo
-	// 			} else {
-	// 				return petToUpdate
-	// 			}
-	// 		})
+			const updatedPets = petArray.pets.map(petToUpdate => {
+				if(petToUpdate._id === petInfo._id) {
+					return petInfo
+				} else {
+					return petToUpdate
+				}
+			})
 
-	// 		setPetArray({pets: updatedPets});
+			setPetArray({pets: updatedPets});
 
-	// 	} catch (e) {
-	// 		console.log(e)
-	// 	}
-	// } 
+		} catch (e) {
+			console.log(e)
+		}
+	} 
 
 	return (
 		<div className='background'>
 			<div className='profileBackground' style={{ width: props.overAllWidth }}>
-				{/* <Row>
-					<Col md='auto'> */}
-						{/* <Container > */}
 							<Card style={{ width: '18rem' }} 
 							className='userInfo'
 							>
 								<Card.Img variant='top' src='http://placehold.jp/286x180.png' />
 								<Card.Body>
-									<Card.Title>User Name</Card.Title>
+									<Card.Title>
+										{petArray.user && petArray.user.name} 
+										Name?</Card.Title>
 									<Card.Text>
 										User Bio: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 									</Card.Text>
 									<Card.Text>Full Name: Andy Dwyer</Card.Text>
-									<Card.Text>Email: test@gmail.com</Card.Text>
+									<Card.Text>
+										{/* {props.user.email} */}
+										</Card.Text>
 									<Card.Text>Phone Number: 123-456-7891</Card.Text>
 									<Card.Text>
 										Address: 1234 Meow St, Seattle WA, 98125
 									</Card.Text>
-									<Card.Text>Pets: 2</Card.Text>
+									<Card.Text>Pets: 
+										{/* {petArray.pets.length} */}
+									</Card.Text>
 
 									<Button onClick={() => setShowUser(true)} variant='primary'
 									className='onButton'>
@@ -107,10 +114,6 @@ export default function Profile(props) {
 									</Button>
 								</Card.Body>
 							</Card>
-						{/* </Container> */}
-					{/* </Col>
-			
-				</Row> */}
 						<Container>
 							<h2 className='currentPetsHeader'>Here is a List of your current pets</h2>
 						</Container>
@@ -148,8 +151,11 @@ export default function Profile(props) {
 					handlePetData={handlePetData}
 					showPet={showPet}
 					onHide={() => setShowPet(false)}
+					handleUpdatePet={handleUpdatePet}
 				/>
 			</div>
 		</div>
 	);
 }
+
+export default withAuth0(Profile)

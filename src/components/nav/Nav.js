@@ -19,22 +19,22 @@ function Nav(props) {
 				</aside>
 				<ul>
 					<li className='navListLi'>
-						<Link className='navLink' to='/'>
+						<Link className='navLink' onClick={props.closeSideNav} to='/'>
 							Home
 						</Link>
 					</li>
 					<li className='navListLi'>
-						<Link className='navLink' to='lostOrFound'>
+						<Link className='navLink' onClick={props.closeSideNav} to='lostOrFound'>
 							Lost/Found
 						</Link>
 					</li>
 					<li className='navListLi'>
-						<Link className='navLink' to='profile'>
+						<Link className='navLink' onClick={props.closeSideNav} to='profile'>
 							Profile
 						</Link>
 					</li>
 					<li className='navListLi'>
-						<Link className='navLink' to='about'>
+						<Link className='navLink' onClick={props.closeSideNav} to='about'>
 							About Us
 						</Link>
 					</li>
@@ -44,7 +44,7 @@ function Nav(props) {
 						</li>
 					) : (
 						<li className='navListLi'>
-							<LogInButton />
+							<LogInButton/>
 						</li>
 					)}
 				</ul>

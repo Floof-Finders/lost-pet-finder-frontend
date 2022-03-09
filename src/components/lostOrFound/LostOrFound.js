@@ -42,8 +42,8 @@ export default function Landing(props) {
 	}
 
 	return (
-		<div style={{ width: props.overAllWidth }} className='landing'>
-			<h1>Landing Component</h1>
+		<div style={{ width: props.overAllWidth }} className='lostOrFoundWrapper'>
+			<h1>LostOrFound Component</h1>
 			<section>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -56,7 +56,7 @@ export default function Landing(props) {
 			<button>Post Lost pet</button>
 			<button>Post Found pet</button>
 
-			<Row xs={1} md={2} className='g-4 petCards'>
+			<Row xs={5} md={3} className='g-4 petCards'>
 				{petArray.pets &&
 					petArray.pets.map((pet, id) => (
 						<Col key={id}>

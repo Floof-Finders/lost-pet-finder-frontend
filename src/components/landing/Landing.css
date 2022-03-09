@@ -1,6 +1,7 @@
 .Landing {
-  height: 100%;
+  /* height: 100%; */
   background-color: rgb(95, 158, 160);
   /* width: 50%; */
   /* margin: auto; */
+  height: '100vh'
 }

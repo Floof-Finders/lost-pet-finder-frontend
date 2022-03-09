@@ -18,6 +18,19 @@ export default function PetModal(props) {
 
 		let userID = await axios.get(`${process.env.REACT_APP_BACKEND_SERVER}/user-info`)
 
+		props.handleUpdatePet({
+			petName,
+			userID: userID.data[0].userID ? userID.data[0].userID : uuidv4,
+			description,
+			age,
+			breed,
+			lostLocation,
+			medicalConditions,
+			trackerChip,
+			lostOrFound,
+			reward,
+		})
+		
 		props.handlePetData({
 			petName,
 			userID: userID.data[0].userID ? userID.data[0].userID : uuidv4,
