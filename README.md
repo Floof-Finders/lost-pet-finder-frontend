@@ -82,6 +82,8 @@
 * [Sequelize](https://sequelize.org/)
 * [SQLite3](https://www.sqlite.org/)
 * [SuperTest](https://www.npmjs.com/package/supertest)
+* [@react-google-maps/api](https://www.npmjs.com/package/@react-google-maps/api)
+* [date-fns](https://www.npmjs.com/package/date-fns)
 <!-- * [Nock](https://www.npmjs.com/package/nock)
 * [PG](https://www.npmjs.com/package/pg)
 * [OpenSea API](https://docs.opensea.io/reference/api-overview) -->
@@ -248,6 +250,7 @@ Project Link: [https://github.com/Floof-Finders](https://github.com/Floof-Finder
 * [push notifications with socket.io](https://hetaram37.medium.com/real-time-notifications-using-socket-io-nodejs-and-angular-ec2df283d00b)
 * [Placeholder.com Images](https://placeholder.com/)
 * [Placehold.jp Images](http://placehold.jp/)
+* [Google Maps & Google Places in React](https://www.youtube.com/watch?v=WZcxJGmLbSo)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
