@@ -27,12 +27,11 @@ export default function Landing(props) {
 		setPetArray({pets: petData.data});
 	}
 
+	//Grabs the pets from the database that match that pet for displaying in the modal
 	let filteredPet = (id) => {
 		let pet = petArray.pets.filter((pet) => pet.petID === id);
 		setShowPet(pet[0]);
 	};
-
-	
 
 	async function handleCommentData(commentInfo) {
 		await axios.post(

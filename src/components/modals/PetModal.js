@@ -1,9 +1,11 @@
 import { Modal, Button, Form } from 'react-bootstrap';
-import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 // Pet create/update
-export default function PetModal(props) {
+function PetModal(props) {
+	const [cookies, setCookie] = useCookies();
+
 	async function handleSubmit(e) {
 		e.preventDefault();
 		let petName = e.target.name.value;
@@ -16,32 +18,43 @@ export default function PetModal(props) {
 		let lostOrFound = e.target.lost.value;
 		let reward = e.target.reward.value;
 
-		let userID = await axios.get(`${process.env.REACT_APP_BACKEND_SERVER}/user-info`)
+		console.log('pet data', {
+			petName,
+			userID: cookies.user.userID,
+			description,
+			age: parseInt(age),
+			breed,
+			lostLocation,
+			medicalConditions,
+			trackerChip,
+			lostOrFound,
+			reward: parseInt(reward),
+		});
 
 		props.handleUpdatePet({
 			petName,
-			userID: userID.data[0].userID ? userID.data[0].userID : uuidv4,
+			userID: cookies.user.userID,
 			description,
-			age,
+			age: parseInt(age),
 			breed,
 			lostLocation,
 			medicalConditions,
 			trackerChip,
 			lostOrFound,
-			reward,
-		})
-		
+			reward: parseInt(reward),
+		});
+
 		props.handlePetData({
 			petName,
-			userID: userID.data[0].userID ? userID.data[0].userID : uuidv4,
+			userID: cookies.user.userID,
 			description,
-			age,
+			age: parseInt(age),
 			breed,
 			lostLocation,
 			medicalConditions,
 			trackerChip,
 			lostOrFound,
-			reward,
+			reward: parseInt(reward),
 		});
 	}
 	return (
@@ -52,15 +65,14 @@ export default function PetModal(props) {
 				</Modal.Header>
 				<Modal.Body>
 					<Form onSubmit={handleSubmit}>
-
 						<Form.Group controlId='name'>
 							<Form.Label>Pet Name</Form.Label>
-							<Form.Control required type='text' maxlength="255" />
+							<Form.Control required type='text' maxLength='255' />
 						</Form.Group>
 
 						<Form.Group controlId='description'>
 							<Form.Label>Description</Form.Label>
-							<Form.Control required type='text' maxlength="255"/>
+							<Form.Control required type='text' maxLength='255' />
 						</Form.Group>
 
 						<Form.Group controlId='age'>
@@ -76,25 +88,25 @@ export default function PetModal(props) {
 
 						<Form.Group controlId='breed'>
 							<Form.Label>Breed</Form.Label>
-							<Form.Control type='text' maxlength="255"/>
+							<Form.Control type='text' maxLength='255' />
 						</Form.Group>
 
 						<Form.Group controlId='lostLocation'>
 							<Form.Label>Lost Location Temporary here</Form.Label>
-							<Form.Control required type='text' maxlength="255"/>
+							<Form.Control required type='text' maxLength='255' />
 						</Form.Group>
 
 						<Form.Group controlId='medical'>
 							<Form.Label>Current Medical Conditions</Form.Label>
-							<Form.Control type='text' maxlength="255"/>
+							<Form.Control type='text' maxLength='255' />
 						</Form.Group>
 
 						<Form.Group controlId='tracker'>
 							<Form.Label>Tracker Chip</Form.Label>
 							<Form.Select aria-label='Default select example'>
 								<option>Select Yes or No</option>
-								<option value='yes'>Yes</option>
-								<option value='no'>No</option>
+								<option value={true}>Yes</option>
+								<option value={false}>No</option>
 							</Form.Select>
 						</Form.Group>
 
@@ -102,27 +114,24 @@ export default function PetModal(props) {
 							<Form.Label>Lost or Found</Form.Label>
 							<Form.Select aria-label='Default select example'>
 								<option>Select Lost or Found</option>
-								<option value='yes'>Lost</option>
-								<option value='no'>Found</option>
+								<option value={true}>Lost</option>
+								<option value={false}>Found</option>
 							</Form.Select>
 						</Form.Group>
 
 						<Form.Group controlId='reward'>
 							<Form.Label>Reward</Form.Label>
-							<Form.Control type='number' maxlength="255"/>
+							<Form.Control type='number' maxLength='255' />
 						</Form.Group>
-					<Button 
-						variant='primary' 
-						type='submit' 
-						onClick={props.onHide}
-					>
-						Save Changes
-					</Button>
+						<Button variant='primary' type='submit' onClick={props.onHide}>
+							Save Changes
+						</Button>
 					</Form>
 				</Modal.Body>
-				<Modal.Footer>
-				</Modal.Footer>
+				<Modal.Footer></Modal.Footer>
 			</Modal>
 		</>
 	);
 }
+
+export default PetModal;

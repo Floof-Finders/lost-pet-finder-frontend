@@ -6,25 +6,23 @@ import './Profile.css';
 import axios from 'axios';
 import PetInfo from '../pet/PetInfo';
 import { PetContext } from '../../context/petContext'
-import { withAuth0 } from '@auth0/auth0-react';
-
+import { useCookies } from 'react-cookie';
 
 let placeholder =
 	'http://via.placeholder.com/100x100.png?text=Pet+Picture+Here';
 
-
 function Profile(props) {
 	const [showUser, setShowUser] = useState(false);
 	const [showPet, setShowPet] = useState(false);
-	const [userInfo, setUserInfo] = useState()
+	const [cookies, setCookie] = useCookies();
+
+	console.log('What is in my cookies????',cookies.user)
 
 	let { petArray, setPetArray } = useContext(PetContext);
 
-	const { user } = props.auth0;
-
+	console.log('user???', petArray.user)
 	useEffect(() => {
 		getPetData(); // eslint-disable-line react-hooks/exhaustive-deps
-		handleGetUser(); // eslint-disable-line react-hooks/exhaustive-deps
 	}, []);// eslint-disable-line react-hooks/exhaustive-deps
 
 	async function getPetData() {
@@ -40,7 +38,8 @@ function Profile(props) {
 			`${process.env.REACT_APP_BACKEND_SERVER}/pet-creation`,
 			petInfo
 		);
-		console.log('reponse:', response.data);
+		console.log('POST: PET: reponse:', response.data);
+		setPetArray(response.data)
 	}
 
 	async function handleUserData(userInfo) {
@@ -49,13 +48,7 @@ function Profile(props) {
 			userInfo
 		);
 		console.log('reponse:', response.data);
-	}
 
-	async function handleGetUser() {
-		let userID = await axios.get(
-			`${process.env.REACT_APP_BACKEND_SERVER}/user-info`
-		);
-		setUserInfo(userID);
 	}
 
 	// TODO: Use this??
@@ -87,21 +80,21 @@ function Profile(props) {
 								<Card.Img variant='top' src='http://placehold.jp/286x180.png' />
 								<Card.Body>
 									<Card.Title>
-										{petArray.user && petArray.user.name} 
+										{cookies.user && cookies.user.username} 
 										Name?</Card.Title>
 									<Card.Text>
 										User Bio: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 									</Card.Text>
 									<Card.Text>Full Name: Andy Dwyer</Card.Text>
 									<Card.Text>
-										{/* {props.user.email} */}
+										{cookies.user && cookies.user.email}
 										</Card.Text>
 									<Card.Text>Phone Number: 123-456-7891</Card.Text>
 									<Card.Text>
 										Address: 1234 Meow St, Seattle WA, 98125
 									</Card.Text>
 									<Card.Text>Pets: 
-										{/* {petArray.pets.length} */}
+										{petArray.pets && petArray.pets.length}
 									</Card.Text>
 
 									<Button onClick={() => setShowUser(true)} variant='primary'
@@ -158,4 +151,4 @@ function Profile(props) {
 	);
 }
 
-export default withAuth0(Profile)
+export default Profile

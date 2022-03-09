@@ -10,13 +10,14 @@ import LostOrFound from '../lostOrFound/LostOrFound';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import { PetContext } from '../../context/petContext';
+import { useCookies } from 'react-cookie';
 
 function Landing(props) {
 	const [width, setWidth] = useState('0%');
 	const [overAllWidth, setOverAllWidth] = useState('100%');
 	const [showButton, setShowButton] = useState(true);
-	let { setPetArray } = useContext(PetContext);
 	const { user, isAuthenticated } = props.auth0;
+	const [cookies, setCookie] = useCookies();
 
 	useEffect(() => {
 		if (user) {
@@ -41,9 +42,8 @@ function Landing(props) {
 			`${process.env.REACT_APP_BACKEND_SERVER}/user-info`
 		);
 
-		setPetArray({
-			user: getUserInfo,
-		});
+		let currentUser = getUserInfo.data.filter(email => email.email === user.email)
+		setCookie('user', currentUser[0])
 	}
 
 	const openSideNav = () => {
