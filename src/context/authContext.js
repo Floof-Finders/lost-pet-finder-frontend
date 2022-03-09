@@ -8,7 +8,7 @@ export default function AuthProvider(props) {
 	const [capabilities, setCapabilities] = useState([]);
 	const [role, setRole] = useState('');
 
-	console.log(loggedIn, capabilities, role);
+	// console.log(loggedIn, capabilities, role);
 
 	const login = async (username, password) => {
 		await axios

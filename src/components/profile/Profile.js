@@ -16,11 +16,8 @@ function Profile(props) {
 	const [showPet, setShowPet] = useState(false);
 	const [cookies] = useCookies();
 
-	console.log('What is in my cookies????',cookies.user)
-
 	let { petArray, setPetArray } = useContext(PetContext);
 
-	console.log('user???', petArray.user)
 	useEffect(() => {
 		getPetData(); // eslint-disable-line react-hooks/exhaustive-deps
 	}, []);// eslint-disable-line react-hooks/exhaustive-deps
@@ -38,16 +35,16 @@ function Profile(props) {
 			`${process.env.REACT_APP_BACKEND_SERVER}/pet-creation`,
 			petInfo
 		);
-		console.log('POST: PET: reponse:', response.data);
 		setPetArray(response.data)
 	}
 
 	async function handleUserData(userInfo) {
-		let response = await axios.post(
+		// let response = 
+		await axios.post(
 			`${process.env.REACT_APP_BACKEND_SERVER}/user-creation`,
 			userInfo
 		);
-		console.log('reponse:', response.data);
+		// console.log('reponse:', response.data);
 
 	}
 

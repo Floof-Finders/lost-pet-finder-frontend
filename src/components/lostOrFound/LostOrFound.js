@@ -62,7 +62,7 @@ export default function Landing(props) {
 							<Card style={{ width: '18rem' }}>
 								<Card.Img variant='top' src={placeholder} />
 								<Card.Body>
-									<Card.Title>{pet.petName}</Card.Title>
+									<Card.Title>{pet.petName} -- {pet.lostOrFound ? 'Lost' : 'Found'}</Card.Title>
 									<Button
 										variant='primary'
 										onClick={() => {

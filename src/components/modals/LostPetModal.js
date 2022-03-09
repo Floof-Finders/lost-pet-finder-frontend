@@ -28,6 +28,7 @@ function PetInfoModal(props) {
 		let comments = await axios.get(
 			`${process.env.REACT_APP_BACKEND_SERVER}/comment-info`
 		);
+		console.log('comments Data from GetComments: in lostpetmodal', comments.data)
 		setCommentArray(comments.data);
 	}
 
@@ -65,7 +66,7 @@ function PetInfoModal(props) {
 				<Container className='commentContainer'>
 					{commentArray &&
 						commentArray
-							// .filter((el, idx, pet) => pet.petID === props.pet.petID)
+							.filter((comment) => comment.petId === props.pet.petID)
 							.reverse()
 							.map((comment) => {
 								if (comment.userID === cookies.user.userID) {
