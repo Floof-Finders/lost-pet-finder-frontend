@@ -248,6 +248,7 @@ Project Link: [https://github.com/Floof-Finders](https://github.com/Floof-Finder
 * [push notifications with socket.io](https://hetaram37.medium.com/real-time-notifications-using-socket-io-nodejs-and-angular-ec2df283d00b)
 * [Placeholder.com Images](https://placeholder.com/)
 * [Placehold.jp Images](http://placehold.jp/)
+* [How To Build A Flip Card Component With React](https://bvgsoftware.com/blog/how-to-build-a-flip-card-component-with-react/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
