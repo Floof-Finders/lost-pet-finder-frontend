@@ -16,7 +16,7 @@ function Landing(props) {
 	const [overAllWidth, setOverAllWidth] = useState('100%');
 	const [showButton, setShowButton] = useState(true);
 	const { user, isAuthenticated } = props.auth0;
-	const [cookies, setCookie] = useCookies(); // eslint-disable-line react-hooks/exhaustive-deps
+	const setCookie = useCookies(); // eslint-disable-line react-hooks/exhaustive-deps
 
 	useEffect(() => {
 		if (user) {
@@ -42,7 +42,7 @@ function Landing(props) {
 		);
 
 		let currentUser = getUserInfo.data.filter(email => email.email === user.email)
-		setCookie('user', currentUser[0])
+		setCookie[1]('user', currentUser[0])
 	}
 
 	const openSideNav = () => {
