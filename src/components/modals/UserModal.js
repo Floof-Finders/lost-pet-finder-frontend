@@ -27,22 +27,22 @@ export default function UserModal(props) {
 					<Form onSubmit={handleSubmit}>
 						<Form.Group controlId='username'>
 							<Form.Label>UserName</Form.Label>
-							<Form.Control required type='text' maxlength="255"/>
+							<Form.Control required type='text' maxLength="255"/>
 						</Form.Group>
 
 						<Form.Group controlId='firstName'>
 							<Form.Label>First Name</Form.Label>
-							<Form.Control required type='text' maxlength="255"/>
+							<Form.Control required type='text' maxLength="255"/>
 						</Form.Group>
 
 						<Form.Group controlId='lastName'>
 							<Form.Label>Last Name</Form.Label>
-							<Form.Control required type='text' maxlength="255"/>
+							<Form.Control required type='text' maxLength="255"/>
 						</Form.Group>
 
 						<Form.Group controlId='password'>
 							<Form.Label>Password</Form.Label>
-							<Form.Control required type='text' maxlength="255"/>
+							<Form.Control required type='text' maxLength="255"/>
 						</Form.Group>
 
 						<Form.Group controlId='role'>
