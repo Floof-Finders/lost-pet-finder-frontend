@@ -1,17 +1,20 @@
 import './Main.css';
-import AuthForm from './auth/AuthForm';
-// import Map from './map/Map';
 import { withAuth0 } from '@auth0/auth0-react';
-
+import LoginButton from '../components/auth/LoginButton'
 function main(props) {
 	return (
+
 		<section
 			className='Main'
-			style={{ width: props.overAllWidth, height: '100vh' }}
-		>
-			<h1>Main Component</h1>
-			<AuthForm />
-			{/* <Map /> */}
+			style={{ height: '100vh' }}
+			>
+			<h1>Lost or Found, the best app to find your pet!</h1>
+
+			<section>
+				Description of the app and what you can do!!
+
+			</section>
+				<LoginButton />
 		</section>
 	);
 }
