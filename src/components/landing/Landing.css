@@ -1,7 +1,9 @@
 .Landing {
   /* height: 100%; */
-  background-color: rgb(95, 158, 160);
+  /* background-color: #5F9EA0; */
+  /* background-image: linear-gradient(to bottom left, rgb(252, 247, 248), #D4AF37); */
+  background-image: linear-gradient(to left,#9FD1CE, rgb(252, 247, 248), #9FD1CE);
   /* width: 50%; */
   /* margin: auto; */
-  height: '100vh'
+  height: '100vh';
 }

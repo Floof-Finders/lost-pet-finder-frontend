@@ -13,10 +13,9 @@ import { useCookies } from 'react-cookie';
 
 function Landing(props) {
 	const [width, setWidth] = useState('0%');
-	const [overAllWidth, setOverAllWidth] = useState('100%');
 	const [showButton, setShowButton] = useState(true);
 	const { user, isAuthenticated } = props.auth0;
-	const setCookie = useCookies(); // eslint-disable-line react-hooks/exhaustive-deps
+	const setCookie = useCookies();
 
 	useEffect(() => {
 		if (user) {
@@ -40,57 +39,62 @@ function Landing(props) {
 		let getUserInfo = await axios.get(
 			`${process.env.REACT_APP_BACKEND_SERVER}/user-info`
 		);
+		console.log('getUserInfo', getUserInfo);
 
-		let currentUser = getUserInfo.data.filter(email => email.email === user.email)
-		setCookie[1]('user', currentUser[0])
+		let currentUser = getUserInfo.data.filter(
+			(email) => email.email === user.email
+		);
+
+		setCookie[1]('user', currentUser[0]);
 	}
 
 	const openSideNav = () => {
 		setWidth('10%');
-		setOverAllWidth('90%');
 		setShowButton(false);
 	};
 
 	const closeSideNav = () => {
 		setWidth('0%');
-		setOverAllWidth('100%');
 		setShowButton(true);
 	};
 
 	return (
 		<div className='Landing'>
-			<div>
-				<Header
-					showButton={showButton}
-					width={width}
-					closeSideNav={closeSideNav}
-					openSideNav={openSideNav}
+			<Header
+				showButton={showButton}
+				width={width}
+				closeSideNav={closeSideNav}
+				openSideNav={openSideNav}
+			/>
+			<Routes>
+				<Route path='/' element={<Main />} />
+				<Route
+					path='lostOrFound'
+					element={
+						isAuthenticated ? (
+							<>
+								<LostOrFound />
+							</>
+						) : (
+							''
+						)
+					}
 				/>
-				<Routes>
-					<Route path='/' element={<Main overAllWidth={overAllWidth} />} />
-					<Route
-						path='lostOrFound'
-						element={<LostOrFound overAllWidth={overAllWidth} />}
-					/>
-					<Route
-						path='about'
-						element={
-							isAuthenticated ? (
-								<>
-									<AboutUs overAllWidth={overAllWidth} />
-								</>
-							) : (
-								''
-							)
-						}
-					/>
-					<Route
-						path='profile'
-						element={<Profile user={user} overAllWidth={overAllWidth} />}
-					/>
-				</Routes>
-				<Footer />
-			</div>
+				<Route
+					path='profile'
+					element={
+						isAuthenticated ? (
+							<>
+								<Profile user={user} />
+							</>
+						) : (
+							''
+						)
+					}
+				/>
+			</Routes>
+			<Route path='about' element={<AboutUs />} />
+			<Footer />
 		</div>
 	);
 }

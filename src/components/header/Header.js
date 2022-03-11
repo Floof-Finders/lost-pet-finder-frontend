@@ -1,6 +1,6 @@
 import Nav from '../nav/Nav.js';
 import './Header.css';
-import pawPrint from '../img/paw-print-unsplash.jpg';
+import pawPrint from '../img/staticPics/paw-print-unsplash.jpg';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
 export default function Header(props) {

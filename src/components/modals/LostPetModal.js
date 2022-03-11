@@ -28,6 +28,10 @@ function PetInfoModal(props) {
 		let comments = await axios.get(
 			`${process.env.REACT_APP_BACKEND_SERVER}/comment-info`
 		);
+		console.log(
+			'comments Data from GetComments: in lostpetmodal',
+			comments.data
+		);
 		setCommentArray(comments.data);
 	}
 
@@ -59,25 +63,26 @@ function PetInfoModal(props) {
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body className='show-grid'>
+				<Container></Container>
+
 				<PetInfo pet={props.pet} placeholder={placeholder} />
 
-				<Container></Container>
 				<Container className='commentContainer'>
 					{commentArray &&
 						commentArray
-							// .filter((el, idx, pet) => pet.petID === props.pet.petID)
+							.filter((comment) => comment.petId === props.pet.petID)
 							.reverse()
 							.map((comment) => {
 								if (comment.userID === cookies.user.userID) {
 									return (
 										<div key={comment.commentID} className='userComments'>
-											User Comments: {comment.commentText}
+											{cookies.user.username}: {comment.commentText}
 										</div>
 									);
 								}
 								return (
 									<div key={comment.commentID} className='allComments'>
-										Comments: {comment.commentText}
+										Other Users: {comment.commentText}
 									</div>
 								);
 							})}
@@ -100,6 +105,7 @@ function PetInfoModal(props) {
 			</Modal.Body>
 			<Modal.Footer>
 				<Button onClick={props.onHide}>Close</Button>
+				{/* <Button onClick={props.handleUpdatePet(props.pet.petID)}>Update pet</Button> */}
 			</Modal.Footer>
 		</Modal>
 	);

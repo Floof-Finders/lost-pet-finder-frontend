@@ -1,22 +1,22 @@
-import { Card, Button, Row, Col } from 'react-bootstrap';
 import './lostOrFound.css';
 import LostPetModal from '../modals/LostPetModal';
 import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import PetCards from './petCardTabs';
 
-import { PetContext } from '../../context/petContext'
+import { PetContext } from '../../context/petContext';
+import PetModal from '../modals/PetModal';
 
 let placeholder =
 	'http://placehold.jp/3d4070/ffffff/150x50.png?text=Profile%20image';
 export default function Landing(props) {
-
 	let { petArray, setPetArray } = useContext(PetContext);
+	const [showPetUpdate, setShowPetUpdate] = useState(false);
 
 	const [showComment, setShowComment] = useState(false);
 	const [showPet, setShowPet] = useState();
 
 	useEffect(() => {
-		
 		getPetData(); // eslint-disable-line react-hooks/exhaustive-deps
 	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -24,7 +24,8 @@ export default function Landing(props) {
 		let petData = await axios.get(
 			`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
 		);
-		setPetArray({pets: petData.data});
+		setPetArray({ pets: petData.data });
+		console.log('please run once')
 	}
 
 	//Grabs the pets from the database that match that pet for displaying in the modal
@@ -39,9 +40,38 @@ export default function Landing(props) {
 			commentInfo
 		);
 	}
+	let getUpdateData = ''
+
+	// TODO: Use this??
+	// async function handleUpdatePet(petInfo) {
+	// 	try {
+	// 		let dataStorage = {};
+	// 		getUpdateData = (petStuff) => {
+	// 			setShowPetUpdate(true)
+	// 			dataStorage = petStuff
+	// 		}
+	// 		const updatedPets = petArray.pets.map((petToUpdate) => {
+	// 			console.log('id matching', petToUpdate.userID, '===', petInfo);
+	// 			if (petToUpdate.petID === petInfo.petID) {
+	// 				return dataStorage;
+	// 			} else {
+	// 				return petToUpdate;
+	// 			}
+	// 		});
+	// 		console.log('updatedPets:', updatedPets);
+	// 		await axios.put(
+	// 			`${process.env.REACT_APP_BACKEND_SERVER}/pet-update/${petInfo.userID}`,
+	// 			updatedPets
+	// 		);
+
+	// 		setPetArray({ pets: updatedPets });
+	// 	} catch (e) {
+	// 		console.log(e);
+	// 	}
+	// }
 
 	return (
-		<div style={{ width: props.overAllWidth }} className='lostOrFoundWrapper'>
+		<div className='lostOrFoundWrapper'>
 			<h1>LostOrFound Component</h1>
 			<section>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -52,43 +82,30 @@ export default function Landing(props) {
 				occaecat cupidatat non proident, sunt in culpa qui officia deserunt
 				mollit anim id est laborum.
 			</section>
-			<button>Post Lost pet</button>
-			<button>Post Found pet</button>
 
-			<Row xs={5} md={3} className='g-4 petCards'>
-				{petArray.pets &&
-					petArray.pets.map((pet, id) => (
-						<Col key={id}>
-							<Card style={{ width: '18rem' }}>
-								<Card.Img variant='top' src={placeholder} />
-								<Card.Body>
-									<Card.Title>{pet.petName}</Card.Title>
-									<Button
-										variant='primary'
-										onClick={() => {
-											filteredPet(pet.petID);
-											setShowComment(true);
-										}}
-									>
-										View More
-									</Button>
-									<Button variant='danger'>Seen Near Me!</Button>
-								</Card.Body>
-							</Card>
-						</Col>
-					))}
+			<PetCards
+				placeholder={placeholder}
+				filteredPet={filteredPet}
+				setShowComment={setShowComment}
+			/>
 
-				{showPet ? (
-					<LostPetModal
-						pet={showPet}
-						showComment={showComment}
-						onHide={() => setShowComment(false)}
-						handleCommentData={handleCommentData}
-					/>
-				) : (
-					''
-				)}
-			</Row>
+			<PetModal
+			getUpdateData={getUpdateData}
+				showPet={showPetUpdate}
+				onHide={() => setShowPetUpdate(false)}
+			/>
+
+			{showPet ? (
+				<LostPetModal
+					pet={showPet}
+					showComment={showComment}
+					onHide={() => setShowComment(false)}
+					handleCommentData={handleCommentData}
+					// handleUpdatePet={handleUpdatePet}
+				/>
+			) : (
+				''
+			)}
 		</div>
 	);
 }

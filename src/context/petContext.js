@@ -5,7 +5,7 @@ export const PetContext = createContext({});
 function PetProvider(props) {
 	const [petArray, setPetArray] = useState({
     pets: [],
-		user: {}
+		lostPets: []
   });
 
 	return (

@@ -6,14 +6,12 @@ export default function UserModal(props) {
 		let username = e.target.username.value;
 		let firstName = e.target.firstName.value;
 		let lastName = e.target.lastName.value;
-		let password = e.target.password.value;
 		let role = e.target.role.value;
 
 		props.handleUserData({
 			username,
 			firstName,
 			lastName,
-			password,
 			role,
 		});
 	}
@@ -37,11 +35,6 @@ export default function UserModal(props) {
 
 						<Form.Group controlId='lastName'>
 							<Form.Label>Last Name</Form.Label>
-							<Form.Control required type='text' maxLength="255"/>
-						</Form.Group>
-
-						<Form.Group controlId='password'>
-							<Form.Label>Password</Form.Label>
 							<Form.Control required type='text' maxLength="255"/>
 						</Form.Group>
 
