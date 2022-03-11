@@ -1,8 +1,7 @@
 import {
 	Row,
 	Col,
-	Container,
-	Card,
+	Container
 } from 'react-bootstrap';
 import Map from '../map/Map'
 
