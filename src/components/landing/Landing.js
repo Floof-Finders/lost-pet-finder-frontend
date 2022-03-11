@@ -92,8 +92,8 @@ function Landing(props) {
 						)
 					}
 				/>
+				<Route path='about' element={<AboutUs />} />
 			</Routes>
-			<Route path='about' element={<AboutUs />} />
 			<Footer />
 		</div>
 	);

@@ -1,6 +1,6 @@
 .lostOrFoundWrapper {
   text-align: center;
-  height: '100vh';
+  min-height: 900px;
   background-color: #5F9EA0;
   width: 1024px;
   margin: auto;
