@@ -1,4 +1,3 @@
-import { Card, Button, Row, Col, Tabs, Tab } from 'react-bootstrap';
 import './lostOrFound.css';
 import LostPetModal from '../modals/LostPetModal';
 import { useEffect, useState, useContext } from 'react';
@@ -44,32 +43,32 @@ export default function Landing(props) {
 	let getUpdateData = ''
 
 	// TODO: Use this??
-	async function handleUpdatePet(petInfo) {
-		try {
-			let dataStorage = {};
-			getUpdateData = (petStuff) => {
-				setShowPetUpdate(true)
-				dataStorage = petStuff
-			}
-			const updatedPets = petArray.pets.map((petToUpdate) => {
-				console.log('id matching', petToUpdate.userID, '===', petInfo);
-				if (petToUpdate.petID === petInfo.petID) {
-					return dataStorage;
-				} else {
-					return petToUpdate;
-				}
-			});
-			console.log('updatedPets:', updatedPets);
-			await axios.put(
-				`${process.env.REACT_APP_BACKEND_SERVER}/pet-update/${petInfo.userID}`,
-				updatedPets
-			);
+	// async function handleUpdatePet(petInfo) {
+	// 	try {
+	// 		let dataStorage = {};
+	// 		getUpdateData = (petStuff) => {
+	// 			setShowPetUpdate(true)
+	// 			dataStorage = petStuff
+	// 		}
+	// 		const updatedPets = petArray.pets.map((petToUpdate) => {
+	// 			console.log('id matching', petToUpdate.userID, '===', petInfo);
+	// 			if (petToUpdate.petID === petInfo.petID) {
+	// 				return dataStorage;
+	// 			} else {
+	// 				return petToUpdate;
+	// 			}
+	// 		});
+	// 		console.log('updatedPets:', updatedPets);
+	// 		await axios.put(
+	// 			`${process.env.REACT_APP_BACKEND_SERVER}/pet-update/${petInfo.userID}`,
+	// 			updatedPets
+	// 		);
 
-			setPetArray({ pets: updatedPets });
-		} catch (e) {
-			console.log(e);
-		}
-	}
+	// 		setPetArray({ pets: updatedPets });
+	// 	} catch (e) {
+	// 		console.log(e);
+	// 	}
+	// }
 
 	return (
 		<div className='lostOrFoundWrapper'>

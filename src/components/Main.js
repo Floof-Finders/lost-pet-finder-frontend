@@ -1,6 +1,4 @@
 import './Main.css';
-import AuthForm from './auth/AuthForm';
-// import Map from './map/Map';
 import { withAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../components/auth/LoginButton'
 function main(props) {
@@ -17,9 +15,6 @@ function main(props) {
 
 			</section>
 				<LoginButton />
-
-			{/* <AuthForm /> */}
-			{/* <Map /> */}
 		</section>
 	);
 }
