@@ -6,8 +6,6 @@ import {
 import Map from '../map/Map'
 
 import './petInfo.css'
-import puppyEyes from '../img/staticPics/sad-puppy-eyes-unsplash.jpg'
-import sadKitty from '../img/staticPics/sad-cat-unsplash.jpg'
 
 // Pet Information - Breaking down into components
 export default function PetInfo(props) {
