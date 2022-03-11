@@ -5,8 +5,9 @@ import PetModal from '../modals/PetModal';
 import './Profile.css';
 import axios from 'axios';
 import PetInfo from '../pet/PetInfo';
-import { PetContext } from '../../context/petContext'
+import { PetContext } from '../../context/petContext';
 import { useCookies } from 'react-cookie';
+import petProfile from '../img/staticPics/cats-dogs-unsplash.jpg'
 
 let placeholder =
 	'http://via.placeholder.com/100x100.png?text=Pet+Picture+Here';
@@ -14,99 +15,116 @@ let placeholder =
 function Profile(props) {
 	const [showUser, setShowUser] = useState(false);
 	const [showPet, setShowPet] = useState(false);
-	const [cookies] = useCookies();
+	const [cookies , setCookie] = useCookies();
 
 	let { petArray, setPetArray } = useContext(PetContext);
-
 	useEffect(() => {
 		getPetData(); // eslint-disable-line react-hooks/exhaustive-deps
-	}, []);// eslint-disable-line react-hooks/exhaustive-deps
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 	async function getPetData() {
 		let petData = await axios.get(
 			`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
 		);
-		console.log('petData:', petData.data);
-		setPetArray({pets: petData.data});
+		setPetArray({ pets: petData.data });
 	}
 
 	async function handlePetData(petInfo) {
-		let response = await axios.post(
+		await axios.post(
 			`${process.env.REACT_APP_BACKEND_SERVER}/pet-creation`,
 			petInfo
 		);
-		setPetArray({pets: response.data})
+
+		let petData = await axios.get(
+			`${process.env.REACT_APP_BACKEND_SERVER}/pet-info`
+		);
+
+		setPetArray({ pets: petData.data });
 	}
 
 	async function handleUserData(userInfo) {
-		// let response = 
-		await axios.post(
-			`${process.env.REACT_APP_BACKEND_SERVER}/user-creation`,
+		userInfo['email'] = cookies.user.email
+		userInfo['userID'] = cookies.user.userID
+		console.log('userInfo', userInfo)
+		let newUser = await axios.put(
+			`${process.env.REACT_APP_BACKEND_SERVER}/user-update/${userInfo.userID}`,
 			userInfo
 		);
-		// console.log('reponse:', response.data);
+		console.log('newUser', newUser.data)
+
+		setCookie('user', newUser.data);
+	}
+
+	async function postToLostPets (petID) {
+		let post = petArray.pets.filter(pet => pet.petID === petID)
+
+		post[0].isLost = true
+
+		await axios.put(`${process.env.REACT_APP_BACKEND_SERVER}/pet-toLost/${petID}`,
+		post)
 
 	}
 
 	// TODO: Use this??
-	async function handleUpdatePet (petInfo) {
-		try {
-			await axios.put(`${process.env.REACT_APP_BACKEND_SERVER}/pet-update/${petInfo._id}`, petInfo)
+	// async function handleUpdatePet(petInfo) {
+	// 	try {
+			
+	// 		const updatedPets = petArray.pets.map((petToUpdate) => {
+	// 			console.log('id matching', petToUpdate.userID, '===',petInfo.userID)
+	// 			if (petToUpdate.userID === petInfo.petID) {
+	// 				return petInfo;
+	// 			} else {
+	// 				return petToUpdate;
+	// 			}
+	// 		});
+	// 		await axios.put(
+	// 			`${process.env.REACT_APP_BACKEND_SERVER}/pet-update/${petInfo.petID}`,
+	// 			updatedPets
+	// 		);
 
-			const updatedPets = petArray.pets.map(petToUpdate => {
-				if(petToUpdate._id === petInfo._id) {
-					return petInfo
-				} else {
-					return petToUpdate
-				}
-			})
-
-			setPetArray({pets: updatedPets});
-
-		} catch (e) {
-			console.log(e)
-		}
-	} 
+	// 		setPetArray({ pets: updatedPets });
+	// 	} catch (e) {
+	// 		console.log(e);
+	// 	}
+	// }
 
 	return (
 		<div className='background'>
-			<div className='profileBackground' style={{ width: props.overAllWidth }}>
-							<Card style={{ width: '18rem' }} 
-							className='userInfo'
+				<section className='userInfo'>
+					<Card style={{ width: '18rem' }}>
+						<Card.Img variant='top' src={petProfile} />
+						<Card.Body>
+							<Card.Title>
+								Username: {cookies.user && cookies.user.username}
+								
+							</Card.Title>
+							
+							<Card.Text>Full Name: {cookies.user.firstName ? `${cookies.user.firstName} ${cookies.user.lastName}` : 'Default First name and Last name' }</Card.Text>
+							<Card.Text>Email: {cookies.user && cookies.user.email}</Card.Text>
+							<Card.Text>
+								Pets:
+								{petArray.pets && petArray.pets.length}
+							</Card.Text>
+
+							<Button
+								onClick={() => setShowUser(true)}
+								variant='primary'
+								className='onButton'
 							>
-								<Card.Img variant='top' src='http://placehold.jp/286x180.png' />
-								<Card.Body>
-									<Card.Title>
-										{cookies.user && cookies.user.username} 
-										Name?</Card.Title>
-									<Card.Text>
-										User Bio: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-									</Card.Text>
-									<Card.Text>Full Name: Andy Dwyer</Card.Text>
-									<Card.Text>
-										{cookies.user && cookies.user.email}
-										</Card.Text>
-									<Card.Text>Phone Number: 123-456-7891</Card.Text>
-									<Card.Text>
-										Address: 1234 Meow St, Seattle WA, 98125
-									</Card.Text>
-									<Card.Text>Pets: 
-										{petArray.pets && petArray.pets.length}
-									</Card.Text>
+								Update Profile
+							</Button>
 
-									<Button onClick={() => setShowUser(true)} variant='primary'
-									className='onButton'>
-										Update Profile
-									</Button>
-
-									<Button onClick={() => setShowPet(true)} className='onButton'>
-										Add a new Pet
-									</Button>
-								</Card.Body>
-							</Card>
-						<Container>
-							<h2 className='currentPetsHeader'>Here is a List of your current pets</h2>
-						</Container>
+							<Button onClick={() => setShowPet(true)} className='onButton'>
+								Add a new Pet
+							</Button>
+						</Card.Body>
+					</Card>
+				</section>
+				<Container>
+					<h2 className='currentPetsHeader'>
+						Here is a List of your current pets
+					</h2>
+				</Container>
 				<div className='petCardContainerOutside'>
 					<Row xs={1} md={2} className='g-4 petCardContainer'>
 						{petArray.pets &&
@@ -120,12 +138,14 @@ function Profile(props) {
 										<Card.Body className='petCard'>
 											<PetInfo pet={pet} placeholder={placeholder} />
 
-											<Button
+											{/* <Button
 												onClick={() => setShowPet(true)}
 												variant='primary'
 											>
 												Update Pet
-											</Button>
+											</Button> */}
+
+											<Button onClick={() => postToLostPets(pet.petID)}>Post to lost pets</Button>
 										</Card.Body>
 									</Card>
 								</Col>
@@ -141,11 +161,10 @@ function Profile(props) {
 					handlePetData={handlePetData}
 					showPet={showPet}
 					onHide={() => setShowPet(false)}
-					handleUpdatePet={handleUpdatePet}
+					// handleUpdatePet={handleUpdatePet}
 				/>
 			</div>
-		</div>
 	);
 }
 
-export default Profile
+export default Profile;

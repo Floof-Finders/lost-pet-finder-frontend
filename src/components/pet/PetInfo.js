@@ -6,6 +6,8 @@ import {
 } from 'react-bootstrap';
 
 import './petInfo.css'
+import puppyEyes from '../img/staticPics/sad-puppy-eyes-unsplash.jpg'
+import sadKitty from '../img/staticPics/sad-cat-unsplash.jpg'
 
 // Pet Information - Breaking down into components
 export default function PetInfo(props) {
@@ -26,12 +28,12 @@ export default function PetInfo(props) {
 			<Row>
 				<Col xs={8} md={6}>
 					<Card>
-						<Card.Img variant='top' src={props.placeholder} />
+						<Card.Img variant='top' src={puppyEyes} />
 					</Card>
 				</Col>
 				<Col xs={8} md={6}>
 					<Card>
-						<Card.Img variant='top' src={props.placeholder} />
+						<Card.Img variant='top' src={sadKitty} />
 					</Card>
 				</Col>
 			</Row>

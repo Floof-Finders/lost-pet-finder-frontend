@@ -13,17 +13,14 @@
 }
 
 .background {
-  background-color: #FCF7F8;
+  /* background-color: #FCF7F8; */
+  width: 1024px;
+  margin: auto;
+  background-color: #5F9EA0;
   height: '100vh';
 }
 
-.profileBackground {
-  background-color: #5F9EA0;
-  /* height: 100%; */
-  /* width: auto
-  ; */
-  /* width: 108px; */
-}
+
 
 .petCardContainer {
   width: 900px;
@@ -32,7 +29,10 @@
 
 .petCardContainerOutside {
   margin: auto;
-  width: 35%;
+  width: 90%;
+  position: relative;
+  bottom: 430px;
+  left: 25px;
   /* background-color: blue; */
   /* border: #000000 3px solid; */
 }
@@ -41,8 +41,10 @@
   float: left;
   /* border: #000000 3px solid; */
   /* width: 400px; */
-  margin: 30px;
-
+  position: relative;
+  right: 400px;
+  margin: 20px;
+  margin-top: 20px;
 }
 
 .onButton {
@@ -53,7 +55,9 @@
 
 .currentPetsHeader {
   text-align: center;
-  margin: 50px;
+  margin-bottom: 50px;
+  position: relative;
+  top: 15px;
   border: #212525 solid 2px;
   /* padding: 50px */
 }
