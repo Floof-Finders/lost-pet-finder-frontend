@@ -22,7 +22,7 @@ function PetInfoModal(props) {
 		getComments();
 	}, []);
 
-	console.log('PET PROPS', props.pet);
+	// console.log('PET PROPS', props.pet);
 
 	async function getComments() {
 		let comments = await axios.get(

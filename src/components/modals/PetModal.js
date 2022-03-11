@@ -103,7 +103,7 @@ function PetModal(props) {
 						<Form.Group controlId='tracker'>
 							<Form.Label>Tracker Chip</Form.Label>
 							<Form.Select aria-label='Default select example'>
-								<option>Select Yes or No</option>
+								<option value={false}>Select Yes or No</option>
 								<option value={true}>Yes</option>
 								<option value={false}>No</option>
 							</Form.Select>
@@ -112,7 +112,7 @@ function PetModal(props) {
 						<Form.Group controlId='lost'>
 							<Form.Label>Lost or Found</Form.Label>
 							<Form.Select aria-label='Default select example'>
-								<option>Select Lost or Found</option>
+								<option value={true}>Select Lost or Found</option>
 								<option value={true}>Lost</option>
 								<option value={false}>Found</option>
 							</Form.Select>

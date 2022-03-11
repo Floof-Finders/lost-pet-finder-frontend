@@ -83,7 +83,7 @@
 * [SQLite3](https://www.sqlite.org/)
 * [SuperTest](https://www.npmjs.com/package/supertest)
 * [@react-google-maps/api](https://www.npmjs.com/package/@react-google-maps/api)
-* [date-fns](https://www.npmjs.com/package/date-fns)
+* [Moment](https://momentjs.com/)
 <!-- * [Nock](https://www.npmjs.com/package/nock)
 * [PG](https://www.npmjs.com/package/pg)
 * [OpenSea API](https://docs.opensea.io/reference/api-overview) -->
@@ -251,6 +251,7 @@ Project Link: [https://github.com/Floof-Finders](https://github.com/Floof-Finder
 * [Placeholder.com Images](https://placeholder.com/)
 * [Placehold.jp Images](http://placehold.jp/)
 * [Google Maps & Google Places in React](https://www.youtube.com/watch?v=WZcxJGmLbSo)
+* [SVG Silh - Paw SVG](https://svgsilh.com/image/1314467.html)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

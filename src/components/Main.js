@@ -1,6 +1,5 @@
 import './Main.css';
 import AuthForm from './auth/AuthForm';
-// import Map from './map/Map';
 import { withAuth0 } from '@auth0/auth0-react';
 
 function main(props) {
@@ -11,7 +10,6 @@ function main(props) {
 		>
 			<h1>Main Component</h1>
 			<AuthForm />
-			{/* <Map /> */}
 		</section>
 	);
 }
