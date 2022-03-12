@@ -24,3 +24,9 @@
   overflow: auto;
   padding: 2px;
 }
+
+.googleMap {
+  /* margin: 0 60px; */
+  margin: auto;
+  width: auto;
+}

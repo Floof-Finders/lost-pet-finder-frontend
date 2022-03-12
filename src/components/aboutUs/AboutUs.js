@@ -8,7 +8,7 @@ import lilBae from '../img/pets/lilBae.jpeg';
 import charlie from '../img/profile/charlieF.JPG';
 import HaruKrissy from '../img/pets/HaruKrissy.jpg';
 // Heather
-// import heather from '../img/profile/....'
+import heather from '../img/profile/hBisgaard.jpg'
 import betaRomen from '../img/pets/betaRomen.png';
 
 import Image from 'react-bootstrap/Image';
@@ -20,7 +20,7 @@ export default function AboutUs(props) {
 				Creators of Lost Pet Finder
 			</div>
 
-			<Image className='heather' thumbnail src={HaruKrissy} />
+			<Image className='heather' thumbnail src={heather} />
 			<Image className='heatherPet' thumbnail src={betaRomen} />
 			<Image className='charlie' thumbnail src={charlie} />
 			<Image className='charliePet' thumbnail src={HaruKrissy} />

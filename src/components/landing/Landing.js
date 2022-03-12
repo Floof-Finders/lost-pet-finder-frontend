@@ -12,51 +12,50 @@ import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
 function Landing(props) {
-	const [width, setWidth] = useState('0%');
-	const [showButton, setShowButton] = useState(true);
-	const { user, isAuthenticated } = props.auth0;
-	const setCookie = useCookies();
+  const [width, setWidth] = useState('0%');
+  const [showButton, setShowButton] = useState(true);
+  const { user, isAuthenticated } = props.auth0;
+  const setCookie = useCookies();
 
-	useEffect(() => {
-		if (user) {
-			saveUser();
-		}
-	}, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (user) {
+      saveUser();
+    }
+  }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
-	async function saveUser() {
-		let userInfo = {
-			username: user.nickname,
-			email: user.email,
-			password: user.email,
-			role: 'editor',
-		};
+  async function saveUser() {
+    let userInfo = {
+      username: user.nickname,
+      email: user.email,
+      password: user.email,
+      role: 'editor',
+    };
 
-		await axios.post(
-			`${process.env.REACT_APP_BACKEND_SERVER}/user-creation`,
-			userInfo
-		);
+    await axios.post(
+      `${process.env.REACT_APP_BACKEND_SERVER}/user-creation`,
+      userInfo
+    );
 
 		let getUserInfo = await axios.get(
 			`${process.env.REACT_APP_BACKEND_SERVER}/user-info`
 		);
-		// console.log('getUserInfo', getUserInfo);
 
-		let currentUser = getUserInfo.data.filter(
-			(email) => email.email === user.email
-		);
+    let currentUser = getUserInfo.data.filter(
+      (email) => email.email === user.email
+    );
 
-		setCookie[1]('user', currentUser[0]);
-	}
+    setCookie[1]('user', currentUser[0]);
+  }
 
-	const openSideNav = () => {
-		setWidth('10%');
-		setShowButton(false);
-	};
+  const openSideNav = () => {
+    setWidth('10%');
+    setShowButton(false);
+  };
 
-	const closeSideNav = () => {
-		setWidth('0%');
-		setShowButton(true);
-	};
+  const closeSideNav = () => {
+    setWidth('0%');
+    setShowButton(true);
+  };
 
 	return (
 		<div className='Landing'>
