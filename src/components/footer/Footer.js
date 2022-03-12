@@ -2,7 +2,7 @@
 export default function Footer(props) {
 	return (
 		<footer className="fixed-bottom">
-			<h2>footer here</h2>
+			<h2>&copy;2022 Floof Finders</h2>
 		</footer>
 	);
 }
