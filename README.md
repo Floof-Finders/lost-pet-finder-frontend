@@ -252,6 +252,8 @@ Project Link: [https://github.com/Floof-Finders](https://github.com/Floof-Finder
 * [Placehold.jp Images](http://placehold.jp/)
 * [Google Maps & Google Places in React](https://www.youtube.com/watch?v=WZcxJGmLbSo)
 * [SVG Silh - Paw SVG](https://svgsilh.com/image/1314467.html)
+* [Bootstrap Icons](https://icons.getbootstrap.com/#usage)
+* [Jest IO](https://jestjs.io/docs/tutorial-react)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

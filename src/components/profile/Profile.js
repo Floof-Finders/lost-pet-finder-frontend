@@ -99,7 +99,7 @@ function Profile(props) {
 								
 							</Card.Title>
 							
-							<Card.Text>Full Name: {cookies.user.firstName ? `${cookies.user.firstName} ${cookies.user.lastName}` : 'Default First name and Last name' }</Card.Text>
+							<Card.Text>Full Name: {cookies.user && cookies.user.firstName && cookies.user.firstName ? `${cookies.user.firstName} ${cookies.user.lastName}` : 'Default First name and Last name' }</Card.Text>
 							<Card.Text>Email: {cookies.user && cookies.user.email}</Card.Text>
 							<Card.Text>
 								Pets:
