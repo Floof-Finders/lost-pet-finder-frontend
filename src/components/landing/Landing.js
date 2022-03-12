@@ -39,7 +39,7 @@ function Landing(props) {
 		let getUserInfo = await axios.get(
 			`${process.env.REACT_APP_BACKEND_SERVER}/user-info`
 		);
-		console.log('getUserInfo', getUserInfo);
+		// console.log('getUserInfo', getUserInfo);
 
 		let currentUser = getUserInfo.data.filter(
 			(email) => email.email === user.email
@@ -92,8 +92,8 @@ function Landing(props) {
 						)
 					}
 				/>
+				<Route path='about' element={<AboutUs />} />
 			</Routes>
-			<Route path='about' element={<AboutUs />} />
 			<Footer />
 		</div>
 	);
