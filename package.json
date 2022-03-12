@@ -6,11 +6,16 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --verbose --coverage",
+    "tests": "react-scripts test",
     "test:w": "jest –watch --coverage",
     "eject": "react-scripts eject"
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.9.0",
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@googlemaps/react-wrapper": "^1.1.26",
@@ -75,7 +80,6 @@
     ]
   },
   "jest": {
-    "testEnvironment": "jsdom",
-    "setupFiles": ["raf/polyfill", "/Users/veebs/Documents/CodeFellows/401/floof-finder/lost-pet-finder-frontend/src/__tests__/setup.js"]
+    "testEnvironment": "jsdom"
   }
 }
