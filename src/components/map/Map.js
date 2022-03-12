@@ -3,8 +3,8 @@ import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-map
 import moment from 'moment';
 
 const mapContainerStyle = {
-  width: '315px',
-  height: '315px'
+  width: '400px',
+  height: '400px'
 }
 const center = {
   lat: 47.6038321,

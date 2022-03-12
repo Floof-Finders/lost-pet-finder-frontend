@@ -26,7 +26,7 @@
 
 .heatherBio {
   position: relative;
-  bottom: 870px;
+  bottom: 620px;
   width: 1024;
   height: 270px;
   /* border: red solid 2px; */
@@ -36,14 +36,14 @@
   margin-top: 5px;
   margin-bottom: 5px;
   position: relative;
-  bottom: 900px;
+  bottom: 620px;
   width: 1024;
   height: 270px;
   /* border: red solid 2px; */
 }
 .markBio {
   position: relative;
-  bottom: 920px;
+  bottom: 620px;
   width: 1024;
   height: 270px;
   /* border: red solid 2px; */
@@ -61,15 +61,15 @@
   width: 300px;
   position: relative;
   right: 660px;
-  top: 340px;
+  top: 180px;
   float: left;
   margin: 5px;
 }
 .mark {
   width: 300px;
   position: relative;
-  right: 660px;
-  top: 320px;
+  right: 350px;
+  top: 170px;
   float: left;
   margin: 5px;
 }
@@ -86,8 +86,8 @@
   margin: 5px;
   width: 300px;
   position: relative;
-  left: 445px;
-  top: -60px;
+  left: 755px;
+  top: -150px;
   /* float: right; */
 }
 .markPet {
@@ -95,7 +95,7 @@
   width: 300px;
   position: relative;
   left: 445px;
-  top: -50px;
+  top: 190px;
   right: 0;
   /* float: right; */
 }

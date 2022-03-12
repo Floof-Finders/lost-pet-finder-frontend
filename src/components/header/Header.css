@@ -1,7 +1,7 @@
 header {
   background-color: rgb(128, 0, 0);
   color: aliceblue;
-  /* position: sticky; */
+  position: sticky;
 }
 
 header > h1 {
