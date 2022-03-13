@@ -5,8 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --verbose --coverage",
-    "tests": "react-scripts test",
+    "test": "react-scripts test",
     "test:w": "jest –watch --coverage",
     "eject": "react-scripts eject"
   },
@@ -78,8 +77,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "jest": {
-    "testEnvironment": "jsdom"
   }
 }

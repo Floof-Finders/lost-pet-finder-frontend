@@ -10,6 +10,7 @@ import LostOrFound from '../lostOrFound/LostOrFound';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
+import ErrorPage from '../error/ErrorPage'
 
 function Landing(props) {
   const [width, setWidth] = useState('0%');
@@ -76,7 +77,7 @@ function Landing(props) {
 								<LostOrFound />
 							</>
 						) : (
-							''
+							<ErrorPage />
 						)
 					}
 				/>
@@ -88,7 +89,7 @@ function Landing(props) {
 								<Profile user={user} />
 							</>
 						) : (
-							''
+							<ErrorPage />
 						)
 					}
 				/>

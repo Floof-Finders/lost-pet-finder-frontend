@@ -5,7 +5,7 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
 export default function Header(props) {
 	return (
-		<header>
+		<header data-testid="header">
 			<span>
 				<img className='pawPrint' src={pawPrint} alt='paw print'></img>
 			</span>

@@ -23,9 +23,9 @@ export default function UserModal(props) {
 				</Modal.Header>
 				<Modal.Body>
 					<Form onSubmit={handleSubmit}>
-						<Form.Group controlId='username'>
+						<Form.Group controlId='username' data-testid='firstNameInput'>
 							<Form.Label>UserName</Form.Label>
-							<Form.Control required type='text' maxLength="255"/>
+							<Form.Control  required type='text' maxLength="255"/>
 						</Form.Group>
 
 						<Form.Group controlId='firstName'>
