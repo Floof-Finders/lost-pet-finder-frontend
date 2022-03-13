@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
+import axios from 'axios';
 import moment from 'moment';
 
 const mapContainerStyle = {
@@ -21,15 +22,32 @@ export default function Map(props) {
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    const items = JSON.parse(window.localStorage.getItem('markers'));
-    if (items) {
-      setMarkers(items);
-    }
+    getMarkers();
   }, []);
 
-  useEffect(() => {
-    window.localStorage.setItem('markers', JSON.stringify(markers));
-  }, [markers]);
+  async function postMarker(markerData) {
+    if (markerData) {
+      await axios.post(
+        `${process.env.REACT_APP_BACKEND_SERVER}/markers`,
+        markerData
+      );
+    }
+    getMarkers();
+  }
+
+  async function getMarkers() {
+    let markerData = await axios.get(
+      `${process.env.REACT_APP_BACKEND_SERVER}/markers`,
+    );
+    setMarkers(markerData.data)
+  }
+
+  async function deleteMarker(id) {
+    await axios.delete(
+      `${process.env.REACT_APP_BACKEND_SERVER}/markers/${id}`,
+    );
+    getMarkers();
+  }
 
   const onMapClick = useCallback((e) => {
     setMarkers(current => [...current, {
@@ -38,16 +56,18 @@ export default function Map(props) {
       time: moment().format('MMMM Do YYYY, h:mm:ss a'),
       petID: props.pet.petID
     }])
+    let data = {
+      lat: e.latLng.lat(),
+      lng: e.latLng.lng(),
+      time: moment().format('MMMM Do YYYY, h:mm:ss a'),
+      petID: props.pet.petID
+    }
+    postMarker(data);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const onDeleteMarker = () => {
-    let results = markers.filter(marker => marker.petID !== props.pet.petID);
-    setMarkers(results);
-  }
 
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
-    console.log('inside onMapLoad', map);
     mapRef.current = map;
   }, []);
 
@@ -65,8 +85,8 @@ export default function Map(props) {
         >
           {markers && markers.filter(id => id.petID === props.pet.petID).map((marker) => (
             <Marker
-              key={marker.lat}
-              position={{ lat: marker.lat, lng: marker.lng }}
+              key={marker.time}
+              position={{ lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) }}
               icon={{
                 url: '/paw.svg',
                 scaledSize: new window.google.maps.Size(30, 30),
@@ -77,14 +97,14 @@ export default function Map(props) {
                 setSelected(marker)
               }}
               onDblClick={() => {
-                onDeleteMarker();
+                deleteMarker(marker.id);
                 setSelected(null);
               }}
             />
           ))}
           {selected ? (
             <InfoWindow
-              position={{ lat: selected.lat, lng: selected.lng }}
+              position={{ lat: parseFloat(selected.lat), lng: parseFloat(selected.lng) }}
               onCloseClick={() => setSelected(null)}
             >
               <div>

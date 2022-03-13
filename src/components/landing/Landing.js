@@ -36,10 +36,9 @@ function Landing(props) {
       userInfo
     );
 
-    let getUserInfo = await axios.get(
-      `${process.env.REACT_APP_BACKEND_SERVER}/user-info`
-    );
-    console.log('getUserInfo', getUserInfo);
+		let getUserInfo = await axios.get(
+			`${process.env.REACT_APP_BACKEND_SERVER}/user-info`
+		);
 
     let currentUser = getUserInfo.data.filter(
       (email) => email.email === user.email
