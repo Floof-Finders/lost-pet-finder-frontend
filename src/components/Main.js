@@ -1,6 +1,5 @@
 import './Main.css';
 import { withAuth0 } from '@auth0/auth0-react';
-import LoginButton from '../components/auth/LoginButton';
 function main(props) {
 	return (
 		<section className='Main' style={{ height: '100vh' }}>
