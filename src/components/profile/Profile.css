@@ -54,10 +54,27 @@
 }
 
 .currentPetsHeader {
-  text-align: center;
+  /* text-align: center; */
   margin-bottom: 50px;
   position: relative;
   top: 15px;
-  border: #212525 solid 2px;
+  /* border: #212525 solid 2px; */
+  border-radius: 30px;
+	padding: 5px;
+	background-color: #9FD1CE;
   /* padding: 50px */
+  /* text-shadow:2px 2px #D4AF37; */
+  background-image: linear-gradient(to right, #5F9EA0, #D4AF37, #5F9EA0);
+
+}
+
+.h1 {
+	text-align: center;
+	margin: 20px;
+	/* border: black solid 2px; */
+	border-radius: 30px;
+	padding: 10px;
+	background-color: #9FD1CE;
+  text-shadow:1px 1px #D4AF37;
+
 }

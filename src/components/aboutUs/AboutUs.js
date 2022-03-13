@@ -16,9 +16,9 @@ import Image from 'react-bootstrap/Image';
 export default function AboutUs(props) {
 	return (
 		<div className='aboutUs'>
-			<div className='header'>
+			<h2 className='header'>
 				Creators of Lost Pet Finder
-			</div>
+			</h2>
 
 			<Image className='heather' thumbnail src={heather} />
 			<Image className='heatherPet' thumbnail src={betaRomen} />

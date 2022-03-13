@@ -9,8 +9,6 @@ export default function PetCards(props) {
   let { petArray } = useContext(PetContext);
 	const [key, setKey] = useState('lost');
 
-	// console.log('petArray',petArray.pets[0])
-
 	return (
 		<Tabs
 			id='uncontrolled-tab-example'
@@ -43,7 +41,6 @@ export default function PetCards(props) {
 											>
 												View More
 											</Button>
-											{/* <Button variant='danger'>Seen Near Me!</Button> */}
 										</Card.Body>
 									</Card>
 								</Col>
@@ -72,7 +69,6 @@ export default function PetCards(props) {
 											>
 												View More
 											</Button>
-											<Button variant='danger'>Seen Near Me!</Button>
 										</Card.Body>
 									</Card>
 								</Col>

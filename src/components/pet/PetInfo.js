@@ -20,16 +20,6 @@ export default function PetInfo(props) {
 				</span>
 			</Row>
 			<Row>
-				{/* <Col xs={8} md={6}>
-					<Card>
-						<Card.Img variant='top' src={puppyEyes} />
-					</Card>
-				</Col>
-				<Col xs={8} md={6}>
-					<Card>
-						<Card.Img variant='top' src={sadKitty} />
-					</Card>
-				</Col> */}
 				<Col xs={8} md={6}>
 					<div className='googleMap'>
 						<Map pet={props.pet} />
