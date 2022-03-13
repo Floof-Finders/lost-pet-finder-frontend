@@ -4,7 +4,8 @@ import '@testing-library/jest-dom/extend-expect'
 import Footer from '../../components/footer/Footer'
 
 test('Renders Lost Pet Finder Footer', () => {
-  render(<Footer title={'Floof Finders'} />)
-  const linkElement = screen.getByText('Floof Finders')
+  render(<Footer />)
+  // const linkElement = screen.getByText('@2022 Floof Finders')
+  const linkElement = screen.getByTestId('header')
   expect(linkElement).toBeInTheDocument();
 })

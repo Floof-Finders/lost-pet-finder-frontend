@@ -4,7 +4,7 @@ export default function Footer(props) {
 		<footer
 		//  className="fixed-bottom"
 		>
-			<h2>&copy;2022 Floof Finders</h2>
+			<h2 data-testid="header">&copy;2022 Floof Finders</h2>
 		</footer>
 	);
 }
