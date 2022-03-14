@@ -9,7 +9,6 @@ import charlie from '../img/profile/charlieF.JPG';
 import HaruKrissy from '../img/pets/HaruKrissy.jpg';
 // Heather
 import heather from '../img/profile/hBisgaard.jpg';
-import betaRomen from '../img/pets/betaRomen.png';
 import betaromen from '../img/pets/betaromen.jpg';
 
 import Image from 'react-bootstrap/Image';
