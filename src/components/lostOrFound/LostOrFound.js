@@ -41,14 +41,11 @@ export default function Landing(props) {
 
 	return (
 		<div className='lostOrFoundWrapper'>
-			<h2 className='hh1'>Is your pet lost? Has someone found a pet?</h2>
+			<h2 className='hh1'>Lost or Found Pets</h2>
 
 			<h4 className='lostInformation'>
-				Please look below, sort from lost or found pets.
-				<br />
-				<br />
-				If you know or have seen, please click on the "View More" and add any
-				information you can to better help bring pets home to their family.
+				Please click on the "View More" button to add
+				information <br/>to help bring pets home to their family.
 			</h4>
 
 			<PetCards filteredPet={filteredPet} setShowComment={setShowComment} />

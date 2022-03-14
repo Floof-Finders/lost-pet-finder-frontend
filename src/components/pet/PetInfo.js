@@ -30,13 +30,13 @@ export default function PetInfo(props) {
 				<Col xs={8} md={6}>
 					<section className='info'>
 						{props.pet.age
-							? `Appoximate Pet Age: ${props.pet.age}`
+							? `Approximate Pet Age: ${props.pet.age}`
 							: 'Pets Age'}
 					</section>
 				</Col>
 				<Col xs={8} md={6}>
 					<section className='info'>
-						{props.pet.breed ? `Pet's Breed: ${props.pet.breed}` : 'Pets Breed'}
+						{props.pet.breed ? `Breed: ${props.pet.breed}` : 'Breed'}
 					</section>
 				</Col>
 				<Col xs={8} md={6}>

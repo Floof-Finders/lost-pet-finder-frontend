@@ -46,7 +46,7 @@
 
 .secondInfo {
 	position: relative;
-	top: -35px;
+	top: -5px;
 	font-size:x-large;
 	padding: 30px;
 	margin-top: 40px;
@@ -54,7 +54,7 @@
 
 .thirdImg {
 	position: relative;
-	top: -40px;
+	top: 10px;
 	float: right;
 	width: 380px;
 	border: black solid 4px;
@@ -65,7 +65,7 @@
 
 .thirdInfo {
 	position: relative;
-	top: -60px;
+	top: 10px;
 	font-size:x-large;
 	padding: 30px;
 	margin-top: 40px;

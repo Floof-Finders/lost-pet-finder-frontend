@@ -100,7 +100,8 @@ function Profile(props) {
 				<div className='petCardContainerOutside'>
 					<Row xs={1} md={2} className='g-4 petCardContainer'>
 						{petArray.pets &&
-							petArray.pets.map((pet, id) => (
+						petArray.pets.filter(id => id.userID === cookies.user.userID )
+							.map((pet, id) => (
 								<Col key={id}>
 									<Card className='petCard' style={{ width: '25rem' }}>
 

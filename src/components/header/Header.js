@@ -9,7 +9,7 @@ export default function Header(props) {
 			<span>
 				<img className='pawPrint' src={pawPrint} alt='paw print'></img>
 			</span>
-			<h1>Lost Pet Finder 9000</h1>
+			<h1 className='projName'>Lost Pet Finder 9000</h1>
 
 			{props.showButton ? (
 				<span className='openNav' onClick={() => props.openSideNav()}>
