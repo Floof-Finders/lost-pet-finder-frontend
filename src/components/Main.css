@@ -3,16 +3,70 @@
 	width: 1024px;
 	margin: auto;
 	background-color: #5F9EA0;
-  /* position: fixed; */
-	/* position: relative;  */
-  /* left: 10%; */
-	z-index: 1;
-	top: 0;
-	left: 0;
-	transition: 0.5s ease;
-	overflow-x: hidden;
 	padding-top: 20px;
-	/* display: flex; */
-	flex-direction: column;
 	align-items: center;
+}
+
+.h1 {
+	text-align: center;
+	margin: 20px;
+	/* border: black solid 2px; */
+	border-radius: 30px;
+	padding: 5px;
+	background-color: #9FD1CE;
+	background-image: linear-gradient(to right, #5F9EA0, #D4AF37, #5F9EA0);
+}
+
+.firstImg {
+	position: relative;
+	float: right;
+	width: 380px;
+	border: black solid 4px;
+	padding: 8px;
+	background-color: aliceblue;
+	margin: 10px 20px 0 10px;
+}
+
+.firstInfo {
+	font-size:x-large;
+	padding: 30px;
+	margin-top: 40px;
+}
+
+.secondImg {
+	position: relative;
+	top: 10px;
+	float: left;
+	width: 380px;
+	border: black solid 4px;
+	padding: 8px;
+	background-color: aliceblue;
+	margin: 10px 20px 0 10px;
+}
+
+.secondInfo {
+	position: relative;
+	top: -5px;
+	font-size:x-large;
+	padding: 30px;
+	margin-top: 40px;
+}
+
+.thirdImg {
+	position: relative;
+	top: 10px;
+	float: right;
+	width: 380px;
+	border: black solid 4px;
+	padding: 8px;
+	background-color: aliceblue;
+	margin: 10px 20px 0 10px;
+}
+
+.thirdInfo {
+	position: relative;
+	top: 10px;
+	font-size:x-large;
+	padding: 30px;
+	margin-top: 40px;
 }

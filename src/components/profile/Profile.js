@@ -9,9 +9,6 @@ import { PetContext } from '../../context/petContext';
 import { useCookies } from 'react-cookie';
 import petProfile from '../img/staticPics/cats-dogs-unsplash.jpg'
 
-let placeholder =
-	'http://via.placeholder.com/100x100.png?text=Pet+Picture+Here';
-
 function Profile(props) {
 	const [showUser, setShowUser] = useState(false);
 	const [showPet, setShowPet] = useState(false);
@@ -45,12 +42,10 @@ function Profile(props) {
 	async function handleUserData(userInfo) {
 		userInfo['email'] = cookies.user.email
 		userInfo['userID'] = cookies.user.userID
-		console.log('userInfo', userInfo)
 		let newUser = await axios.put(
 			`${process.env.REACT_APP_BACKEND_SERVER}/user-update/${userInfo.userID}`,
 			userInfo
 		);
-		console.log('newUser', newUser.data)
 
 		setCookie('user', newUser.data);
 	}
@@ -64,29 +59,6 @@ function Profile(props) {
 		post)
 
 	}
-
-	// TODO: Use this??
-	// async function handleUpdatePet(petInfo) {
-	// 	try {
-			
-	// 		const updatedPets = petArray.pets.map((petToUpdate) => {
-	// 			console.log('id matching', petToUpdate.userID, '===',petInfo.userID)
-	// 			if (petToUpdate.userID === petInfo.petID) {
-	// 				return petInfo;
-	// 			} else {
-	// 				return petToUpdate;
-	// 			}
-	// 		});
-	// 		await axios.put(
-	// 			`${process.env.REACT_APP_BACKEND_SERVER}/pet-update/${petInfo.petID}`,
-	// 			updatedPets
-	// 		);
-
-	// 		setPetArray({ pets: updatedPets });
-	// 	} catch (e) {
-	// 		console.log(e);
-	// 	}
-	// }
 
 	return (
 		<div className='background'>
@@ -128,22 +100,13 @@ function Profile(props) {
 				<div className='petCardContainerOutside'>
 					<Row xs={1} md={2} className='g-4 petCardContainer'>
 						{petArray.pets &&
-							petArray.pets.map((pet, id) => (
+						petArray.pets.filter(id => id.userID === cookies.user.userID )
+							.map((pet, id) => (
 								<Col key={id}>
 									<Card className='petCard' style={{ width: '25rem' }}>
-										{/* <Card.Img
-											variant='top'
-											src='http://placehold.jp/286x180.png'
-										/> */}
-										<Card.Body className='petCard'>
-											<PetInfo pet={pet} placeholder={placeholder} />
 
-											{/* <Button
-												onClick={() => setShowPet(true)}
-												variant='primary'
-											>
-												Update Pet
-											</Button> */}
+										<Card.Body className='petCard'>
+											<PetInfo pet={pet} />
 
 											<Button onClick={() => postToLostPets(pet.petID)}>Post to lost pets</Button>
 										</Card.Body>
@@ -161,7 +124,6 @@ function Profile(props) {
 					handlePetData={handlePetData}
 					showPet={showPet}
 					onHide={() => setShowPet(false)}
-					// handleUpdatePet={handleUpdatePet}
 				/>
 			</div>
 	);

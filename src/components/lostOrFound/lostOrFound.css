@@ -15,3 +15,17 @@
   margin-right: 15%;
   /* border: red solid 4px */
 }
+
+.lostInformation {
+  background-color: #9FD1CE;
+  margin: 20px;
+  padding: 10px;
+}
+
+.hh1 {
+  /* margin-top: 10px; */
+  padding: 10px;
+  position: relative;
+  top: 10px;
+  background-image: linear-gradient(to right, #5F9EA0, #D4AF37, #5F9EA0);
+}

@@ -6,9 +6,6 @@ import axios from 'axios';
 import PetInfo from '../pet/PetInfo';
 import { useCookies } from 'react-cookie';
 
-let placeholder =
-	'http://via.placeholder.com/100x100.png?text=Pet+Picture+Here';
-
 // Pet Description
 function PetInfoModal(props) {
 	const [cookies] = useCookies();
@@ -22,15 +19,9 @@ function PetInfoModal(props) {
 		getComments();
 	}, []);
 
-	// console.log('PET PROPS', props.pet);
-
 	async function getComments() {
 		let comments = await axios.get(
 			`${process.env.REACT_APP_BACKEND_SERVER}/comment-info`
-		);
-		console.log(
-			'comments Data from GetComments: in lostpetmodal',
-			comments.data
 		);
 		setCommentArray(comments.data);
 	}
@@ -38,12 +29,14 @@ function PetInfoModal(props) {
 	async function handleSubmit(e) {
 		e.preventDefault();
 
+		// Sends Comment Data back to save in database
 		props.handleCommentData({
 			commentText: comment,
 			userID: cookies.user.userID,
 			petId: props.pet.petID,
 		});
 
+		// Displays comments right after they post
 		const timer = setTimeout(() => {
 			getComments();
 		}, 5);
@@ -65,7 +58,7 @@ function PetInfoModal(props) {
 			<Modal.Body className='show-grid'>
 				<Container></Container>
 
-				<PetInfo pet={props.pet} placeholder={placeholder} />
+				<PetInfo pet={props.pet} />
 
 				<Container className='commentContainer'>
 					{commentArray &&
@@ -105,7 +98,6 @@ function PetInfoModal(props) {
 			</Modal.Body>
 			<Modal.Footer>
 				<Button onClick={props.onHide}>Close</Button>
-				{/* <Button onClick={props.handleUpdatePet(props.pet.petID)}>Update pet</Button> */}
 			</Modal.Footer>
 		</Modal>
 	);

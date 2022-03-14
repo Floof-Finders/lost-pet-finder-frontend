@@ -4,10 +4,11 @@ header {
   /* position: sticky; */
 }
 
-header > h1 {
+.projName {
   display: inline-block;
+ text-align: center;
   position: relative;
-  left: 40.5%;
+  left: 37.2%;
   top: 5px;
 }
 

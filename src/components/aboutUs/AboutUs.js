@@ -8,20 +8,18 @@ import lilBae from '../img/pets/lilBae.jpeg';
 import charlie from '../img/profile/charlieF.JPG';
 import HaruKrissy from '../img/pets/HaruKrissy.jpg';
 // Heather
-import heather from '../img/profile/hBisgaard.jpg'
-import betaRomen from '../img/pets/betaRomen.png';
+import heather from '../img/profile/hBisgaard.jpg';
+import betaromen from '../img/pets/betaromen.jpg';
 
 import Image from 'react-bootstrap/Image';
 
 export default function AboutUs(props) {
 	return (
 		<div className='aboutUs'>
-			<div className='header'>
-				Creators of Lost Pet Finder
-			</div>
+			<h2 className='header'>Creators of Lost Pet Finder</h2>
 
 			<Image className='heather' thumbnail src={heather} />
-			<Image className='heatherPet' thumbnail src={betaRomen} />
+			<Image className='heatherPet' thumbnail src={betaromen} />
 			<Image className='charlie' thumbnail src={charlie} />
 			<Image className='charliePet' thumbnail src={HaruKrissy} />
 			<Image className='mark' thumbnail src={mark} />
@@ -64,15 +62,21 @@ export default function AboutUs(props) {
 					</Card.Link>
 				</span>
 				<aside className='bio'>
-					Lorem Ipsum is simply dummy text of the printing and typesetting
-					industry. Lorem Ipsum has been the industry's standard dummy text ever
-					since the 1500s, when an unknown printer took a galley of type and
-					scrambled it to make a type specimen book. It has survived not only
-					five centuries, but also the leap into electronic typesetting,
-					remaining essentially unchanged. It was popularised in the 1960s with
-					the release of Letraset sheets containing Lorem Ipsum passages, and
-					more recently with desktop publishing software like Aldus PageMaker
-					including versions of Lorem Ipsum.
+					Heather is a Software Engineer and recent graduate from Code Fellows.
+					Previously, she was a Database and Systems Administrator who dabbled
+					in Electronics repair and Calibration. Recently, she decided to change
+					directions to Software Development to allow for a newly discovered
+					passion - sailing.
+					<br /> <br />
+					She has been in the Army for 18 years and learned how to work in teams
+					of diverse personalities and still accomplish our missions.
+					<br />
+					<br />
+					She has always been into technology and since getting into marine
+					life, has learned many of the perils affecting one of our worlds most
+					precious resources. She would like to use technology to figure out
+					ways to help protect the world’s bodies of water and all the wonderful
+					creatures living within them.
 				</aside>
 			</section>
 
@@ -116,15 +120,17 @@ export default function AboutUs(props) {
 					</Card.Link>
 				</span>
 				<aside className='bio'>
-					Lorem Ipsum is simply dummy text of the printing and typesetting
-					industry. Lorem Ipsum has been the industry's standard dummy text ever
-					since the 1500s, when an unknown printer took a galley of type and
-					scrambled it to make a type specimen book. It has survived not only
-					five centuries, but also the leap into electronic typesetting,
-					remaining essentially unchanged. It was popularised in the 1960s with
-					the release of Letraset sheets containing Lorem Ipsum passages, and
-					more recently with desktop publishing software like Aldus PageMaker
-					including versions of Lorem Ipsum.
+					From Massage therapist to software developer. Using the 10 years worth
+					of skills from being a massage therapist has taught me communication
+					skills. Skills that involve getting information from each client, and
+					creating a plan, process, and post plan to solve the clients issues.
+					<br />
+					<br />
+					Using my passion for helping and teaching, I look forward to working
+					with others, especially being able to be a part of AR/VR development
+					for our educational system to bring technology to our schools, but
+					mainly helping our children learn in a faster pace environment.
+					
 				</aside>
 			</section>
 
@@ -168,15 +174,23 @@ export default function AboutUs(props) {
 					</Card.Link>
 				</span>
 				<aside className='bio'>
-					Lorem Ipsum is simply dummy text of the printing and typesetting
-					industry. Lorem Ipsum has been the industry's standard dummy text ever
-					since the 1500s, when an unknown printer took a galley of type and
-					scrambled it to make a type specimen book. It has survived not only
-					five centuries, but also the leap into electronic typesetting,
-					remaining essentially unchanged. It was popularised in the 1960s with
-					the release of Letraset sheets containing Lorem Ipsum passages, and
-					more recently with desktop publishing software like Aldus PageMaker
-					including versions of Lorem Ipsum.
+					Mark is a Code Fellows graduate in Full Stack Software Development. He
+					is an Army veteran who is originally from Chicago. Right after the
+					military, he received a dual degree in Electronic Music Production and
+					Digital Audio engineering. <br />
+					<br />
+					He then transitioned into the fitness field and became a personal
+					trainer for a couple of years. After his time as a personal trainer,
+					he decided to take a leap into the software development world. He
+					decided to transition into software development because he likes to
+					solve problems and work with teams.
+					<br />
+					<br /> He is highly adaptable and willing to learn whatever it takes
+					to reach his goal. He chose to learn this skill so he can be
+					competitive in the tech industry. His passion for tech is extremely
+					vast; tech is all around and is growing day by day with no plans of
+					stopping. He hopes that one day, his skills can be a part of that
+					movement.
 				</aside>
 			</section>
 		</div>

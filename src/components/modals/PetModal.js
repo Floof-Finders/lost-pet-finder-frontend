@@ -3,6 +3,7 @@ import { useCookies } from 'react-cookie';
 
 // Pet create/update
 function PetModal(props) {
+	// Grab User Data saved in cookies
 	const [cookies] = useCookies();
 
 	async function handleSubmit(e) {
@@ -16,32 +17,6 @@ function PetModal(props) {
 		let trackerChip = e.target.tracker.value;
 		let lostOrFound = e.target.lost.value;
 		let reward = e.target.reward.value;
-
-		console.log('pet data', {
-			petName,
-			userID: cookies.user.userID,
-			description,
-			age: parseInt(age),
-			breed,
-			isLost,
-			medicalConditions,
-			trackerChip,
-			lostOrFound,
-			reward: parseInt(reward),
-		});
-
-		// props.getUpdateData({
-		// 	petName,
-		// 	userID: cookies.user.userID,
-		// 	description,
-		// 	age: parseInt(age),
-		// 	breed,
-		// 	isLost,
-		// 	medicalConditions,
-		// 	trackerChip,
-		// 	lostOrFound,
-		// 	reward: parseInt(reward),
-		// });
 
 		props.handlePetData({
 			petName,
@@ -71,7 +46,7 @@ function PetModal(props) {
 
 						<Form.Group controlId='description'>
 							<Form.Label>Description</Form.Label>
-							<Form.Control  required type='text' maxLength='255' />
+							<Form.Control required type='text' maxLength='255' />
 						</Form.Group>
 
 						<Form.Group controlId='age'>
@@ -88,11 +63,6 @@ function PetModal(props) {
 						<Form.Group controlId='breed'>
 							<Form.Label>Breed</Form.Label>
 							<Form.Control type='text' maxLength='255' />
-						</Form.Group>
-
-						<Form.Group controlId='isLost'>
-							<Form.Label>Lost Location Temporary here</Form.Label>
-							<Form.Control required type='text' maxLength='255' />
 						</Form.Group>
 
 						<Form.Group controlId='medical'>
@@ -122,9 +92,7 @@ function PetModal(props) {
 							<Form.Label>Reward</Form.Label>
 							<Form.Control type='number' maxLength='255' />
 						</Form.Group>
-						<Button variant='primary' type='submit' 
-						// onClick={props.onHide}
-						>
+						<Button variant='primary' type='submit' onClick={props.onHide}>
 							Save Changes
 						</Button>
 					</Form>
