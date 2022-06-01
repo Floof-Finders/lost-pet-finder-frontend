@@ -1,7 +1,5 @@
 # lost-pet-finder-frontend
 
-## NOTE: make note that we want to add functionality to give pets homes as well.
-
 <div id="top"></div>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -20,8 +18,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![Checks][check-sheild]][check-url]
-[![codecov][codecov-sheild]][codecov-url]
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b48f81f9-997e-4274-b85a-039966f3f7bf/deploy-status)](https://app.netlify.com/sites/lost-pet-app/deploys)
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -57,7 +54,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
->Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+>Lost Pet Finder is an application where it is strictly about finding your lost pet. Using a React application we are to create a way for the user to add their lost or found pet and post it a board. Node.js is our backend application and we save our data to a PostgreSQL Database that posts and updates.
 
 ## UML
 
@@ -84,9 +81,6 @@
 * [SuperTest](https://www.npmjs.com/package/supertest)
 * [@react-google-maps/api](https://www.npmjs.com/package/@react-google-maps/api)
 * [Moment](https://momentjs.com/)
-<!-- * [Nock](https://www.npmjs.com/package/nock)
-* [PG](https://www.npmjs.com/package/pg)
-* [OpenSea API](https://docs.opensea.io/reference/api-overview) -->
 
 ## Getting Started
 
@@ -109,80 +103,24 @@ npm run test
 
 ## Optional for using in Production Environment
 
-Request API Key from [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key)
-
-Use API key in the header of request.
-
-```JavaScript
-INSTALLATION
-npm install axios --save
-
-REQUEST
-import axios from "axios";
-
-
-cccccc
-c
-c
-c
-c
-c
-cc UPDATE ME
-c
-c
-c
-c
-c
-
-const options = {
-  method: 'GET',
-  url: 'https://',
-  headers: {'X-API-KEY': 'apiKeyHere'}
-};
-
-axios.request(options).then(function (response) {
-  console.log(response.data);
-}).catch(function (error) {
-  console.error(error);
-});
-```
+ [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key) - Request API Key<br />
+ [Auth0](https://auth0.com/) - Sign up and create an application, grab `Domain` and `Client ID` and add them to your ENV variables
 
 <!-- TODO USAGE EXAMPLES  -->
 ## Usage
 
-Our application is to bring animals back to their owners in the fast way using technology and not having to rely specifically on friends and posters to post around town.
+Our application is to bring animals back to their owners in the fast way using technology and not having to rely specifically on friends and posters to post around town.  
+### Usage Steps:  
+- Signing in by creating an auth0 account or using a google account
+- Update your profile
+- Add pets
+- Depending on Lost or Found option
+  - When posting to lost pets, they will show up under Lost or Found accordingly
 
 ### Deployment
 
-[Heroku Deployment](https://lost-pet-finder-backend.herokuapp.com/)
-[Netlify Deployment](https://lost-pet-finder-frontend.netlify.app/)
-
-## Public Routes
-
-## Auth Routes
-
-### Post: Register your account
-
-```
-http://localhost:3006???????????????????????/register
-
-Pass in your desired username, password
-
-ex.
-
-{
-  "username": "testUserName",
-  "password": "testPassword",
-}
-
-<!-- ROADMAP 
-## Roadmap
-
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-    - [] Nested Feature
--->
+[Netlify Deployment](https://lost-pet-app.netlify.app/)
+<!-- [Heroku Deployment](https://lost-pet-finder-backend.herokuapp.com/) -->
 
 See the [open issues](https://github.com/Floof-Finders/issues) for a full list of proposed features (and known issues).
 
